@@ -1,0 +1,95 @@
+---
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BurgerMenu</title>
+  </head>
+  <body>
+    <div class="burger" id="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+
+    <div class="menu" id="menu">
+      <a href="categories.astro">SHOP</a>
+      <a href="#">ABOUT SOLRIG</a>
+      <a href="#">CONTACT US</a>
+    </div>
+  </body>
+</html>
+
+<style>
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .menu a:last-child {
+    border-bottom: none;
+  }
+
+  .menu a:hover {
+    background-color: #444;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    margin: 20px;
+  }
+
+  .burger div {
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+  }
+
+  .burger.open .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .burger.open .line2 {
+    opacity: 0; /* Gør den midterste linje usynlig */
+  }
+
+  .burger.open .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .menu.show {
+    display: flex;
+  }
+</style>
+
+<script>
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("menu");
+
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("open");
+    menu.classList.toggle("show");
+  });
+</script>
