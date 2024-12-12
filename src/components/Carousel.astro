@@ -1,0 +1,70 @@
+---
+import Card from "../components/Card.astro";
+
+const { products } = Astro.props;
+---
+
+<div class="carousel-container">
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track">
+      {
+        products.map((product) => (
+          <div class="carousel-item">
+            <Card {...product} />
+          </div>
+        ))
+      }
+      <!-- Dupliker elementerne for at lave loop-effekten -->
+      {
+        products.map((product) => (
+          <div class="carousel-item">
+            <Card {...product} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Container og grundopsætning */
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carousel-track-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Track opsætning */
+  .carousel-track {
+    display: flex;
+    gap: 10px;
+    animation: scroll 20s linear infinite;
+    width: max-content; /* Tillad uendelig scroll */
+  }
+
+  /* Individuelle elementer */
+  .carousel-item {
+    flex-shrink: 0;
+    width: 220px; /* Tilpas efter behov */
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

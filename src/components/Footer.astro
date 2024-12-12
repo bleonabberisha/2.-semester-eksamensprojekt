@@ -1,78 +1,69 @@
----
-
----
-
-<footer>
-  <div class="footer-container">
-    <nav class="footer-nav">
-      <a href="/om">Om Solrig</a>
-      <a href="/shop">Shop</a>
-      <a href="/handelsbetingelser">Handelsbetingelser</a>
-      <a href="/kontakt">Kontakt</a>
-    </nav>
-    <div class="footer-socials">
-      <a href="https://dk.pinterest.com/solrigbyhc/">
-        <img src="./gallery/pinterest-logo.webp" alt="Pinterest" />
-      </a>
-      <a href="https://www.instagram.com/solrigkbh/">
-        <img src="./gallery/instagram.webp" alt="Instagram" />
-      </a>
-    </div>
-    <div class="footer-credits">
-      <p>© 2024 solrig. Powered by solrig.</p>
-    </div>
+<footer class="footer">
+  <div class="footer-social">
+    <a href="#" class="social-icon">
+      <img src="./gallery/facebook.webp" alt="Facebook" />
+    </a>
+    <a href="#" class="social-icon">
+      <img src="./gallery/tiktok.webp" alt="TikTok" />
+    </a>
+    <a href="#" class="social-icon">
+      <img src="./gallery/insta.webp" alt="Instagram" />
+    </a>
   </div>
+  <div class="footer-links">
+    <a href="#">Om Solrig</a>
+    <a href="#">Handelsbetingelser</a>
+    <a href="#">Kontakt</a>
+  </div>
+  <div class="footer-copyright">© 2024 solrig. Powered by solrig.</div>
 </footer>
 
 <style>
-  footer {
-    border-top: 1px solid #000; /* Den øverste linje */
-    padding: 20px 0;
-  }
-
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  .footer-nav {
-    display: flex;
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr; /* Én kolonne som udgangspunkt */
     gap: 20px;
-    font-size: 16px;
-  }
-
-  .footer-nav a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-  }
-
-  .footer-nav a:hover {
-    text-decoration: none;
-    color: #780116;
-  }
-
-  .footer-socials {
-    display: flex;
-    gap: 10px;
-  }
-
-  .footer-socials a img {
-    width: 24px;
-    height: 24px;
-  }
-
-  .footer-credits {
-    color: #555;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
-    margin-top: 20px;
+    padding: 20px;
+    font-family: "Merriweather", serif;
+    background-color: #fff;
+    color: #000;
+  }
+
+  /* Grid layout til desktop */
+  @media (min-width: 768px) {
+    .footer {
+      grid-template-columns: 1fr auto 1fr; /* Tre kolonner */
+      grid-template-rows: auto auto; /* To rækker */
+      justify-items: center;
+      align-items: center;
+    }
+
+    .footer-links {
+      grid-column: 1; /* Første kolonne */
+      display: flex;
+      gap: 40px;
+      text-decoration: none;
+    }
+
+    .footer-social {
+      grid-column: 2; /* Midterste kolonne */
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-copyright {
+      grid-column: 1 / -1; /* Strækker sig over alle kolonner */
+      grid-row: 2; /* Anden række */
+      margin-top: 10px;
+      color: #555;
+    }
+  }
+
+  /* Sociale ikoner styling */
+  .footer-social .social-icon img {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
   }
 </style>

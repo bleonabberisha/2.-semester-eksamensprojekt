@@ -4,9 +4,38 @@ import BurgerMenu from "./BurgerMenu.astro";
 
 <nav>
   <BurgerMenu />
-  <img src="./gallery/solrig_logo.webp" alt="logo" />
-  <img src="./gallery/heart.webp" alt="Heart" />
-  <img src="./gallery/cart.webp" alt="cart" />
+  <img class="logo" src="./gallery/solrig_logo.webp" alt="logo" />
+  <div class="ikoner">
+    <img class="heart" src="./gallery/heart.webp" alt="Heart" />
+    <img class="cart" src="./gallery/cart.webp" alt="Cart" />
+  </div>
 </nav>
 
-<style></style>
+<style>
+  nav {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .logo {
+    grid-column: 2;
+    justify-self: center;
+    max-width: 150px;
+    height: auto;
+  }
+
+  .ikoner {
+    display: flex;
+    gap: 40px;
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .heart,
+  .cart {
+    max-width: 24px;
+    height: auto;
+  }
+</style>

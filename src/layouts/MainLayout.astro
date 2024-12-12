@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
-import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -14,6 +14,7 @@ import Navigation from "../components/Navigation.astro";
   </head>
   <body>
     <Navigation />
+    <slot />
     <Footer />
   </body>
 </html>

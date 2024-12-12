@@ -16,6 +16,31 @@
   p {
     font-size: 14px;
   }
+
+  .carousel-item {
+    width: 150px; /* Mindre kort til mobil */
+  }
+
+  .carousel-track {
+    gap: 10px; /* Tættere mellemrum */
+    animation: scroll 15s linear infinite; /* Hurtigere scroll på mobil */
+  }
+
+  .carousel-container {
+    padding: 0 10px; /* Gør containeren mindre */
+  }
+}
+
+/* Tablet (mellem 769px og 1024px) */
+@media (max-width: 1024px) {
+  .carousel-item {
+    width: 180px; /* Medium kort til tablet */
+  }
+
+  .carousel-track {
+    gap: 15px; /* Mindre mellemrum mellem elementerne */
+    animation: scroll 18s linear infinite; /* Juster animationens hastighed */
+  }
 }
 
 /* Styling for desktop*/
@@ -28,5 +53,15 @@
   }
   p {
     font-size: 16px;
+  }
+
+  .carousel-item {
+    width: 220px; /* Større kort til desktop */
+    height: auto;
+  }
+
+  .carousel-track {
+    gap: 20px;
+    animation: scroll 20s linear infinite;
   }
 }
