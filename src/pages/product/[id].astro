@@ -1,0 +1,168 @@
+---
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  picture: string;
+  description: string; // Beskrivelse er valgfri
+  additionalImages: string[]; // Ekstra billeder er valgfri
+};
+
+// `getStaticPaths` bruges til at generere dynamiske ruter baseret på data fra Supabase
+export async function getStaticPaths() {
+  const url = "https://bmeqborbvkcxawkfcyti.supabase.co/rest/v1/webshop";
+  const options = {
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZXFib3JidmtjeGF3a2ZjeXRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3NTAzNjQsImV4cCI6MjA0OTMyNjM2NH0.KlmI1c_Z1pEe-8SBSrlHMo4gvy7nfsLDASpjS2-nFf8",
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    throw new Error(`HTTP-fejl! Status: ${response.status}`);
+  }
+  const produkter = await response.json();
+
+  // Generer ruter baseret på alle produkter
+  return produkter.map((produkt) => ({
+    params: { id: String(produkt.id) }, // Sørg for, at id er en streng
+  }));
+}
+
+// Hent produktdata dynamisk baseret på URL-parameteren `id`
+const { id } = Astro.params;
+
+const url = `https://bmeqborbvkcxawkfcyti.supabase.co/rest/v1/webshop?id=eq.${id}`;
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZXFib3JidmtjeGF3a2ZjeXRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3NTAzNjQsImV4cCI6MjA0OTMyNjM2NH0.KlmI1c_Z1pEe-8SBSrlHMo4gvy7nfsLDASpjS2-nFf8",
+    "Content-Type": "application/json",
+  },
+};
+
+let product: Product | null = null;
+
+try {
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    throw new Error(`HTTP-fejl! Status: ${response.status}`);
+  }
+  const data = await response.json();
+  product = data[0]; // Supabase returnerer altid en liste
+} catch (error) {
+  console.error("Fejl ved hentning af produktdata:", error);
+}
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{product ? product.name : "Produkt ikke fundet"}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+      .images {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .images img {
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      .images img:hover {
+        transform: scale(1.05);
+      }
+      .details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .details h1 {
+        font-size: 2rem;
+        margin: 0;
+      }
+      .details .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+      }
+      .details .description {
+        font-size: 1rem;
+        color: #555;
+      }
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .buttons button,
+      .buttons .wishlist {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 5px;
+      }
+      .buttons button {
+        background-color: #8b0000;
+        color: #fff;
+      }
+      .buttons .wishlist {
+        background-color: transparent;
+        color: #8b0000;
+        border: 1px solid #8b0000;
+      }
+      .buttons button:hover,
+      .buttons .wishlist:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      {product ? (
+        <>
+          <!-- Venstre side: Billeder -->
+          <div class="images">
+            <img src={product.picture} alt={product.name} />
+            <!-- Ekstra billeder, hvis de findes -->
+            {product.additionalImages?.map((image) => (
+              <img src={image} alt={product.name} />
+            ))}
+          </div>
+
+          <!-- Højre side: Detaljer -->
+          <div class="details">
+            <h1>{product.name}</h1>
+            <p class="price">{product.price},00 kr.</p>
+            <p class="description">{product.description || "Ingen beskrivelse tilgængelig."}</p>
+
+            <!-- Knapper -->
+            <div class="buttons">
+              <button>ADD TO BASKET</button>
+              <button class="wishlist">♡</button>
+            </div>
+          </div>
+        </>
+      ) : (
+        <p>Produktet blev ikke fundet.</p>
+      )}
+    </main>
+  </body>
+</html>
