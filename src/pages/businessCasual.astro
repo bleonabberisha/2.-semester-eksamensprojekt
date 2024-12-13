@@ -1,0 +1,10 @@
+---
+const url = "https://bmeqborbvkcxawkfcyti.supabase.co";
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZXFib3JidmtjeGF3a2ZjeXRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3NTAzNjQsImV4cCI6MjA0OTMyNjM2NH0.KlmI1c_Z1pEe-8SBSrlHMo4gvy7nfsLDASpjS2-nFf8",
+  },
+};
+const response = await fetch(url, options);
+const myJson = await response.json();
+---

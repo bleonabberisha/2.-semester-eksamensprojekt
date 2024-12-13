@@ -1,11 +1,5 @@
 <div class="hero">
   <div class="grid1-tekst">
-    <div class="container">
-      <div class="typed-out">
-        <h1>Sustainable slowfashion</h1>
-      </div>
-    </div>
-
     <!-- Shop Knap -->
     <div class="button-container">
       <a href="categories.astro" class="shop-button">SHOP NOW</a>
@@ -36,19 +30,6 @@
     color: white;
   }
 
-  .typed-out {
-    overflow: hidden;
-    white-space: nowrap;
-    animation:
-      typing 3s steps(20, end) forwards,
-      blink 0.8s infinite;
-    font-size: 2rem;
-    border-right: 0.15em solid white;
-    width: 0;
-    max-width: 100%;
-    margin-bottom: 20px; /* Afstand til knappen */
-  }
-
   .button-container {
     margin-top: 60px;
   }
@@ -75,23 +56,5 @@
   .shop-button:active {
     transform: scale(0.95);
     background-color: #4d0000;
-  }
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blink {
-    from {
-      border-color: transparent;
-    }
-    to {
-      border-color: white;
-    }
   }
 </style>
