@@ -1,4 +1,6 @@
 ---
+import MainLayout from '../../layouts/MainLayout.astro';
+
 type Product = {
   id: number;
   name: string;
@@ -61,15 +63,9 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{product ? product.name : "Produkt ikke fundet"}</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
       .container {
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
         max-width: 1200px;
         margin: 40px auto;
@@ -82,31 +78,25 @@ try {
       }
       .images img {
         width: 100%;
-        border-radius: 5px;
-        cursor: pointer;
         transition: transform 0.3s ease;
-      }
-      .images img:hover {
-        transform: scale(1.05);
       }
       .details {
         display: flex;
         flex-direction: column;
-        gap: 20px;
       }
-      .details h1 {
-        font-size: 2rem;
-        margin: 0;
-      }
-      .details .price {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
-      }
-      .details .description {
-        font-size: 1rem;
-        color: #555;
-      }
+
+      @media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Kolonner bliver én kolonne */
+    align-items: stretch; /* Sørger for, at begge fylder samme højde */
+  }
+
+  .images,
+  .details {
+    height: 100%; /* Gør begge sektioner lige høje */
+  }
+}
+
       .buttons {
         display: flex;
         gap: 10px;
@@ -135,6 +125,7 @@ try {
     </style>
   </head>
   <body>
+  <MainLayout>
     <main class="container">
       {product ? (
         <>
@@ -165,4 +156,5 @@ try {
       )}
     </main>
   </body>
+  </MainLayout>
 </html>
