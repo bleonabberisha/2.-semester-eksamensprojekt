@@ -9,12 +9,16 @@
 @media (max-width: 768px) {
   h1 {
     font-size: 28px;
+    font-family: "Courier Prime", monospace;
   }
   h2 {
     font-size: 20px;
+    font-family: "Courier Prime", monospace;
+
   }
   p {
     font-size: 14px;
+    font-family: "Courier Prime", monospace;
   }
 
   .carousel-item {
@@ -47,12 +51,15 @@
 @media (min-width: 768px) {
   h1 {
     font-size: 36px;
+    font-family: "Courier Prime", monospace;
   }
   h2 {
     font-size: 28px;
+    font-family: "Courier Prime", monospace;
   }
   p {
     font-size: 16px;
+    font-family: "Courier Prime", monospace;
   }
 
   .carousel-item {
@@ -65,3 +72,5 @@
     animation: scroll 20s linear infinite;
   }
 }
+
+
