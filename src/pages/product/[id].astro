@@ -1,4 +1,7 @@
 ---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+
 type Product = {
   id: number;
   name: string;
@@ -54,115 +57,242 @@ try {
   console.error("Fejl ved hentning af produktdata:", error);
 }
 ---
-
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{product ? product.name : "Produkt ikke fundet"}</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      .container {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 20px;
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 20px;
-      }
-      .images {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-      .images img {
-        width: 100%;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-      }
-      .images img:hover {
-        transform: scale(1.05);
-      }
-      .details {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .details h1 {
-        font-size: 2rem;
-        margin: 0;
-      }
-      .details .price {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
-      }
-      .details .description {
-        font-size: 1rem;
-        color: #555;
-      }
-      .buttons {
-        display: flex;
-        gap: 10px;
-      }
-      .buttons button,
-      .buttons .wishlist {
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        border-radius: 5px;
-      }
-      .buttons button {
-        background-color: #8b0000;
-        color: #fff;
-      }
-      .buttons .wishlist {
-        background-color: transparent;
-        color: #8b0000;
-        border: 1px solid #8b0000;
-      }
-      .buttons button:hover,
-      .buttons .wishlist:hover {
-        opacity: 0.8;
-      }
-    </style>
-  </head>
-  <body>
+<MainLayout>
     <main class="container">
       {product ? (
         <>
-          <!-- Venstre side: Billeder -->
-          <div class="images">
-            <img src={product.picture} alt={product.name} />
-            <!-- Ekstra billeder, hvis de findes -->
-            {product.additionalImages?.map((image) => (
-              <img src={image} alt={product.name} />
-            ))}
-          </div>
+<div class="breadcrumb">
+  <a href="/">Home</a> › 
+  <a href="/list">Shop</a> › 
+  <span>{product.name}</span>
+</div>
 
-          <!-- Højre side: Detaljer -->
-          <div class="details">
-            <h1>{product.name}</h1>
-            <p class="price">{product.price},00 kr.</p>
-            <p class="description">{product.description || "Ingen beskrivelse tilgængelig."}</p>
 
-            <!-- Knapper -->
-            <div class="buttons">
-              <button>ADD TO BASKET</button>
-              <button class="wishlist">♡</button>
-            </div>
-          </div>
-        </>
-      ) : (
-        <p>Produktet blev ikke fundet.</p>
-      )}
-    </main>
-  </body>
-</html>
+<!-- Venstre side: Billeder -->
+<div class="images">
+  <div class="bigPic">
+<img
+  src={`${product.picture}?w=500&h=600`}
+  alt={product.name}
+  style="width: 500px; height: 600px; object-fit: cover;"
+/>
+  </div>
+<div id="thumbs" class="thumbs">
+  {product.picture2 && (
+    <img
+      src={`${product.picture2}?w=100&h=100&fit=cover`}
+      alt={`${product.name} Thumbnail 1`}
+      class="thumb"
+    />
+  )}
+  {product.picture3 && (
+    <img
+      src={`${product.picture3}?w=100&h=100&fit=cover`}
+      alt={`${product.name} Thumbnail 2`}
+      class="thumb"
+    />
+  )}
+  {product.picture4 && (
+    <img
+      src={`${product.picture4}?w=100&h=100&fit=cover`}
+      alt={`${product.name} Thumbnail 3`}
+      class="thumb"
+    />
+  )}
+</div>
+
+</div>
+
+<!-- Højre side: Detaljer -->
+<div class="details">
+  <div class="details_content">
+    <h1>{product.name}</h1>
+    <p class="price">{product.price},00 kr.</p>
+    <p class="description">
+      {product.description || "Ingen beskrivelse tilgængelig."}
+    </p>
+    <div class="buttons">
+      <button>ADD TO BASKET</button>
+      <button class="wishlist">♡</button>
+    </div>
+  </div>
+</div>
+
+
+</>
+ ) : (
+<p>Produktet blev ikke fundet.</p>
+   )}
+  </main>
+</MainLayout>
+
+
+<style>
+/* GENERELLE STYLING */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #8b0000;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #555;
+}
+
+.breadcrumb span {
+  color: #000;
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.thumbs .thumb {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/***** DESKTOP SPECIFIK STYLING *****/
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  grid-template-rows: auto auto; 
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: auto 2fr; 
+  gap: 10px;
+  align-items: start;
+  grid-column: 1 / span 3; 
+  grid-row: 2; 
+}
+
+.bigPic {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.thumbs {
+  display: grid;
+  grid-template-rows: repeat(3, auto); 
+  grid-column: 1;
+  gap: 10px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px; 
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.details_content {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px; 
+}
+
+.details_content h1 {
+  margin: 0; 
+}
+
+.details_content .price {
+  color: #333;
+  margin: 0; 
+}
+
+.details_content .description {
+  margin: 0; 
+  color: #333; 
+}
+
+.buttons {
+  display: flex;
+  gap: 10px; 
+  justify-content: flex-start; 
+}
+
+.buttons button,
+.buttons .wishlist {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.buttons button {
+  background-color: #8b0000;
+  color: #fff;
+}
+
+.buttons .wishlist {
+  background-color: transparent;
+  color: #8b0000;
+  border: 1px solid #8b0000;
+}
+
+.buttons button:hover,
+.buttons .wishlist:hover {
+  opacity: 0.8;
+}
+
+
+
+/***** MOBIL SPECIFIK STYLING *****/
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .images {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .bigPic {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .thumbs {
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .details {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 20px;
+  }
+
+  .buttons {
+    justify-content: flex-start;
+  }
+}
+
+</style>

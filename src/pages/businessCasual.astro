@@ -22,74 +22,67 @@ try {
 }
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Casual</title>
-    <style>
-      main {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      article {
-        overflow: hidden;
-        text-align: left;
-        position: relative;
-      }
-      article img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
+<header>
+  <Navigation />
+</header>
+<main>
+  {
+    produkter.length > 0 ? (
+      produkter.map((produkt) => (
+        <article class={produkt.liked ? "liked" : ""}>
+          <a href={`/product/${produkt.id}`} style="text-decoration: none; color: inherit;">
+            <img src={produkt.picture} alt={produkt.name} />
+            <h3>{produkt.name}</h3>
+            <p class="price">{produkt.price.toFixed(2).replace(".", ",")} kr.</p>
+          </a>
+        </article>
+      ))
+    ) : (
+      <p>Ingen produkter fundet.</p>
+    )
+  }
+</main>
+<Footer />
 
-      .price {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-        background-color: white;
-        border-top: 1px solid #ddd;
-        font-size: 0.9rem;
-        color: #777;
-      }
+<style>
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  article {
+    overflow: hidden;
+    text-align: left;
+    position: relative;
+  }
+  article img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-      /* Mobil */
-      @media (max-width: 768px) {
-        main {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 10px;
-        }
-      }
-    </style>
-  </head>
+  .price {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+    color: #777;
+  }
 
-  <body>
-    <header>
-      <Navigation />
-    </header>
-    <main>
-      {
-        produkter.length > 0 ? (
-          produkter.map((produkt) => (
-            <article class={produkt.liked ? "liked" : ""}>
-              <img src={produkt.picture} alt={produkt.name} />
-              <h3>{produkt.name}</h3>
-              <p class="price">{produkt.price.toFixed(2).replace(".", ",")} kr.</p>
-            </article>
-          ))
-        ) : (
-          <p>Ingen produkter fundet.</p>
-        )
-      }
-    </main>
-    <Footer />
-  </body>
-</html>
+  /* Mobil */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
+</style>

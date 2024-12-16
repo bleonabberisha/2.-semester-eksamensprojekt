@@ -10,12 +10,16 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
     <link href="https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/global.css" />
     <title>title</title>
   </head>
+  <Navigation />
   <body>
-    <Navigation />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
