@@ -1,0 +1,134 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  picture: string;
+  description: string;
+  additionalImages?: string[];
+};
+
+// Generer dynamiske paths baseret på Supabase data
+export async function getStaticPaths() {
+  const url = "https://bmeqborbvkcxawkfcyti.supabase.co/rest/v1/webshop";
+  const options = {
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZXFib3JidmtjeGF3a2ZjeXRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3NTAzNjQsImV4cCI6MjA0OTMyNjM2NH0.KlmI1c_Z1pEe-8SBSrlHMo4gvy7nfsLDASpjS2-nFf8",
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const produkter = await response.json();
+
+    console.log("Produkter hentet fra Supabase:", produkter); // Debugging
+
+    return {
+      paths: produkter.map((produkt) => ({
+        params: { id: String(produkt.id) },
+      })),
+      fallback: false, // Alle sider genereres statisk
+    };
+  } catch (error) {
+    console.error("Fejl ved hentning af data fra Supabase:", error);
+    return { paths: [], fallback: false };
+  }
+}
+
+// Hent produktdata baseret på URL-parameteren `id`
+const { id } = Astro.params || {};
+if (!id) {
+  throw new Error("Produkt-ID mangler.");
+}
+
+const url = `https://bmeqborbvkcxawkfcyti.supabase.co/rest/v1/webshop?id=eq.${id}`;
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZXFib3JidmtjeGF3a2ZjeXRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3NTAzNjQsImV4cCI6MjA0OTMyNjM2NH0.KlmI1c_Z1pEe-8SBSrlHMo4gvy7nfsLDASpjS2-nFf8",
+    "Content-Type": "application/json",
+  },
+};
+
+let product: Product | null = null;
+
+try {
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    throw new Error(`HTTP-fejl! Status: ${response.status}`);
+  }
+  const data = await response.json();
+  product = data[0] || null; // Håndter tomt svar
+} catch (error) {
+  console.error("Fejl ved hentning af produktdata:", error);
+}
+---
+
+<MainLayout>
+  <main class="container">
+    {product ? (
+      <>
+        <!-- Venstre side: Billeder -->
+        <div class="images">
+          <img src={product.picture} alt={product.name} />
+          {product.additionalImages?.map((image) => (
+            <img src={image} alt={`Ekstra billede af ${product.name}`} />
+          ))}
+        </div>
+
+        <!-- Højre side: Detaljer -->
+        <div class="details">
+          <h1>{product.name}</h1>
+          <p class="price">{product.price ? `${product.price},00 kr.` : "Pris ikke tilgængelig"}</p>
+          <p class="description">
+            {product.description || "Ingen beskrivelse tilgængelig."}
+          </p>
+
+          <!-- Knapper -->
+          <div class="buttons">
+            <button>ADD TO BASKET</button>
+            <button class="wishlist">♡</button>
+          </div>
+        </div>
+      </>
+    ) : (
+      <p>Produktet blev ikke fundet.</p>
+    )}
+  </main>
+  </MainLayout>
+
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .images img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .details h1 {
+      margin: 0 0 10px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #8b0000;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
