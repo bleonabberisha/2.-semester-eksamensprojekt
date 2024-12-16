@@ -12,23 +12,39 @@ const { title, price, image } = Astro.props;
 
 <style>
   .card {
-    width: 200px; /* Juster bredden efter behov */
+    width: 100%;
+    max-width: 280px; 
     border: none;
-    overflow: hidden;
-    text-align: left;
+    display: flex;
+    flex-direction: column; 
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
   }
+
 
   .card img {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: cover; 
+    border-radius: 8px; 
+    margin-bottom: 5px; 
+  }
+
+  .card-content {
+    flex-grow: 2; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
   }
 
   .card-content .title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
-    margin: 10px 0 5px;
+    margin: 2px 0; 
     text-transform: uppercase;
+    color: #222;
   }
 
   .card-content .price {
@@ -36,5 +52,35 @@ const { title, price, image } = Astro.props;
     color: #333;
     font-weight: normal;
     margin: 0;
+  }
+
+ 
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+      max-width: 220px; /
+    }
+
+    .card-content .title {
+      font-size: 1.3rem;
+    }
+
+    .card-content .price {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card {
+      max-width: 180px; 
+    }
+
+    .card-content .title {
+      font-size: 1.2rem;
+    }
+
+    .card-content .price {
+      font-size: 0.9rem;
+    }
   }
 </style>

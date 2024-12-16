@@ -13,15 +13,14 @@ const products = [
 <MainLayout>
   <Hero />
 
-  <!-- Grid layout for text and carousel -->
+
   <div class="grid1_1">
-    <!-- Left Column for Text -->
     <div class="left-column">
       <h1>OUR CONCEPT</h1>
       <p>All Solrig's designs are created with consideration and sustainability in focus. Pass on this thoughtfulness with carefully selected gifts for both the home and the wardrobe. Explore our gift shop and find inspiration for thoughtful choices.</p>
     </div>
     
-    <!-- Right Column for Carousel -->
+
     <div class="right-column">
       <Carousel products={products} />
     </div>
@@ -43,54 +42,51 @@ const products = [
     height: auto;
   }
 
-  /* Grid setup */
   .grid1_1 {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Equal width columns */
-    gap: 50px; /* Space between columns */
-    align-items: start; /* Ensures both items align at the top */
+    grid-template-columns: 1fr 1fr; 
+    gap: 50px; 
+    align-items: start; 
     margin-top: 50px;
   }
 
-  /* Styling for the left column */
+
   .left-column {
     display: flex;
-    flex-direction: column; /* Stacks elements vertically */
-    justify-content: center; /* Centers content vertically */
-    align-items: left; /* Centers content horizontally */
-    padding: 70px; /* Adds some padding inside the column */
-    text-align: left; /* Centers text horizontally */
-    height: 100%; /* Ensures full height of the column is used */
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: left; 
+    padding: 70px; 
+    text-align: left; 
+    height: 100%;
   }
 
-  /* Add some spacing between h1 and p */
+
   .left-column h1 {
-    margin-bottom: 45px; /* Adds space between the h1 and p */
+    margin-bottom: 45px; 
   }
 
   .left-column p {
     margin-top: 0;
-    margin-bottom: 30px; /* Adds space below the paragraph */
+    margin-bottom: 30px; 
   }
 
-  /* Styling for the right column (carousel) */
   .right-column {
-    max-width: 750px; /* Limit max width */
-    margin-left: auto; /* Center carousel if smaller than the grid */
+    max-width: 750px; 
+    margin-left: auto; 
   }
 
-  /* Carousel styling */
   .right-column .carousel {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Show 3 items at a time */
-    gap: 10px; /* Space between carousel items */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
   }
 
-  /* Optional: Styling for carousel images */
+
   .carousel img {
     width: 150%;
     height: auto;
-    object-fit: cover; /* Ensures images are well-scaled */
+    object-fit: cover; 
   }
 
   @media screen and (max-width: 600px) { 
