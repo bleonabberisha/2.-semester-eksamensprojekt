@@ -1,19 +1,23 @@
+---
+
+---
+
 <footer class="footer">
   <div class="footer-social">
     <a href="#" class="social-icon">
-      <img src="./gallery/facebook.webp" alt="Facebook" />
+      <img src="/gallery/facebook.webp" alt="Facebook" />
     </a>
     <a href="#" class="social-icon">
-      <img src="./gallery/tiktok.webp" alt="TikTok" />
+      <img src="/gallery/tiktok.webp" alt="TikTok" />
     </a>
     <a href="#" class="social-icon">
-      <img src="./gallery/insta.webp" alt="Instagram" />
+      <img src="/gallery/insta.webp" alt="Instagram" />
     </a>
   </div>
   <div class="footer-links">
-    <a href="#">Om Solrig</a>
-    <a href="#">Handelsbetingelser</a>
-    <a href="#">Kontakt</a>
+    <a href="#">About Solrig</a>
+    <a href="#">Terms and conditiions</a>
+    <a href="#">Contact</a>
   </div>
   <div class="footer-copyright">© 2024 solrig. Powered by solrig.</div>
 </footer>
@@ -25,21 +29,24 @@
     gap: 20px;
     text-align: center;
     padding: 20px;
-    font-family: "Merriweather", serif;
     background-color: #fff;
     color: #000;
   }
 
   /* Sociale ikoner styling */
   .footer-social .social-icon img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     padding: 5px;
   }
 
-  /* Fjern understregning fra links */
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
   .footer-links a {
     text-decoration: none;
-    color: inherit; /* Sørger for at bruge tekstfarven fra .footer */
+    color: inherit;
   }
 </style>
