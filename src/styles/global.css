@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: normal; /* Fjerner bold skrift fra overskrifter */
+  font-weight: normal;
 }
 
 /* Styling for Mobil */
@@ -34,28 +34,28 @@ h6 {
   }
 
   .carousel-item {
-    width: 150px; /* Mindre kort til mobil */
+    width: 150px;
   }
 
   .carousel-track {
-    gap: 10px; /* Tættere mellemrum */
-    animation: scroll 15s linear infinite; /* Hurtigere scroll på mobil */
+    gap: 10px;
+    animation: scroll 15s linear infinite;
   }
 
   .carousel-container {
-    padding: 0 10px; /* Gør containeren mindre */
+    padding: 0 10px;
   }
 }
 
 /* Tablet (mellem 769px og 1024px) */
 @media (max-width: 1024px) {
   .carousel-item {
-    width: 180px; /* Medium kort til tablet */
+    width: 180px;
   }
 
   .carousel-track {
-    gap: 15px; /* Mindre mellemrum mellem elementerne */
-    animation: scroll 18s linear infinite; /* Juster animationens hastighed */
+    gap: 15px;
+    animation: scroll 18s linear infinite;
   }
 }
 
@@ -78,7 +78,7 @@ h6 {
   }
 
   .carousel-item {
-    width: 220px; /* Større kort til desktop */
+    width: 220px;
     height: auto;
   }
 
