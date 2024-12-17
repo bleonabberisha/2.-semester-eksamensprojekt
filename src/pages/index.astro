@@ -64,6 +64,7 @@ const products = [
 
   .left-column h1 {
     margin-bottom: 45px; 
+    text-align: center;
   }
 
   .left-column p {
@@ -89,18 +90,41 @@ const products = [
     object-fit: cover; 
   }
 
-  @media screen and (max-width: 600px) { 
+  @media screen and (max-width: 700px) { 
     .left-column {
-      padding: 30px;
+      padding: 0px;
     }
     .left-column p {
-      font-size: 8px;
-      margin-top: -20px;
-      width: 200px;
+      font-size: 15px;
+      margin-top: -10px;
+      width: 440px;
     }
     .left-column h1 {
-      margin-top: -30px;
+      margin-top: -10px;
+      text-align: left;
     }
+
+    .carousel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+  }
+
+  .right-column {
+    max-width: 750px; 
+    margin-left: auto; 
+  }
+
+  .grid1_1 {
+    grid-template-columns: 1fr; 
+    gap: 50px; 
+    align-items: start; 
+   
+  }
+
+  
+
+
   }
 
   
