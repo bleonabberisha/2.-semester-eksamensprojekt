@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import "../styles/global.css";
 
 const url = "https://bmeqborbvkcxawkfcyti.supabase.co/rest/v1/webshop"; // Hent kun "rimini" produkter
 const options = {
@@ -26,6 +27,7 @@ try {
   <header>
     <Navigation />
   </header>
+  <h1 class="overskrift">All Products</h1>
   <main>
     {
       produkter.length > 0 ? (
@@ -47,6 +49,12 @@ try {
 </body>
 
 <style>
+  .overskrift {
+    text-align: left;
+    padding: 20px;
+    margin-left: 90px;
+    margin-top: 25px;
+  }
   main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -84,6 +92,12 @@ try {
 
   /* Mobil */
   @media (max-width: 768px) {
+    .overskrift {
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 10px;
+    }
     main {
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
