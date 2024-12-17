@@ -3,5 +3,77 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
-  <h1>ABOUT SOLRIG</h1>
+  <div class="grid-container">
+    <!-- Row 1 -->
+    <div class="grid-item text">
+      <h1>ABOUT SOLRIG</h1>
+      <p>Solrig is founded by two friends, Helene and Hanna Martha, who share a passion for sustainable fashion and a vision for a greener future. The brand is built on the principle of only using resources that have already been produced, giving new life to materials that would otherwise go to waste. In a world where far too much clothing is made, much of it ends up in landfills, harming the environment. Helene and Hanna Martha believe that the fashion industry needs change, and through Solrig, they create a beautiful and conscious alternative—one that celebrates creativity, reduces waste, and challenges overproduction.</p>
+    </div>
+    <div class="grid-item image">
+      <img src="/gallery/moede.webp" alt="Møde" />
+    </div>
+
+    <!-- Row 2 -->
+    <div class="grid-item image">
+      <img src="/gallery/pigerneSammen.webp" alt="Outfit af pigerne" />
+    </div>
+    <div class="grid-item text">
+      <p class="citat">“We design clothes that adapt to you—not the other way around. Size is just a number; comfort and confidence are what truly matter.”</p>
+      <h2>Sizing</h2>
+      <p>Solrig’s vision is to make sizing more inclusive and adaptable to women’s bodies through all stages of life. By using sizes 1, 2, and 3 instead of traditional labels like S, M, and L, they aim to remove the pressure and inconsistency often found in the fashion industry. Whether a woman is pregnant or experiencing body changes, Solrig designs pieces, like blazers, to fit and empower her.</p>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="grid-item text">
+      <h2>Design</h2>
+      <p>All products are designed from the thoughts of giving discarded materials a new value and to be a piece you can have in your wardrobe for many years.</p>
+      <h2>Production</h2>
+      <p>Everything is designed, developed and produced in Copenhagen. It’s important for us to be a very close part of the production of every piece.</p>
+    </div>
+    <div class="grid-item image">
+      <img src="/gallery/produktionBilled.webp" alt="Produktion" />
+    </div>
+  </div>
 </MainLayout>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+  }
+
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .grid-item.image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2,
+  p,
+  img {
+    padding: 20px;
+  }
+
+  .citat {
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
