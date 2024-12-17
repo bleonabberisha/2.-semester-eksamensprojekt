@@ -5,18 +5,30 @@
   box-sizing: border-box;
 }
 
-/* Styling for Mobil*/
+/* Reset af standard font-weight */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal; /* Fjerner bold skrift fra overskrifter */
+}
+
+/* Styling for Mobil */
 @media (max-width: 768px) {
   h1 {
     font-size: 28px;
     font-family: "Courier Prime", monospace;
+    font-weight: bold;
   }
   h2 {
     font-size: 20px;
     font-family: "Courier Prime", monospace;
-
   }
-  p {
+
+  p,
+  a {
     font-size: 14px;
     font-family: "Courier Prime", monospace;
   }
@@ -47,17 +59,20 @@
   }
 }
 
-/* Styling for desktop*/
+/* Styling for desktop */
 @media (min-width: 768px) {
   h1 {
     font-size: 36px;
     font-family: "Courier Prime", monospace;
+    font-weight: bold;
   }
   h2 {
     font-size: 28px;
     font-family: "Courier Prime", monospace;
   }
-  p {
+  p,
+  a,
+  button {
     font-size: 16px;
     font-family: "Courier Prime", monospace;
   }
@@ -72,5 +87,3 @@
     animation: scroll 20s linear infinite;
   }
 }
-
-

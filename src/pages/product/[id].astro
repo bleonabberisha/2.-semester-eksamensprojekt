@@ -57,6 +57,10 @@ try {
   console.error("Fejl ved hentning af produktdata:", error);
 }
 ---
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 <MainLayout>
     <main class="container">
       {product ? (
@@ -113,7 +117,10 @@ try {
     </p>
     <div class="buttons">
       <button>ADD TO BASKET</button>
-      <button class="wishlist">♡</button>
+<button id="wishlistButton" class="wishlist" data-active="false">
+  <i class="fa-regular fa-heart"></i> <!-- Tomt hjerte -->
+</button>
+
     </div>
   </div>
 </div>
@@ -260,6 +267,18 @@ img {
   opacity: 0.8;
 }
 
+.wishlist {
+  font-size: 1.5rem;
+  color: #8b0000; 
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.wishlist i {
+  transition: all 0.3s ease;
+}
 
 
 /***** MOBIL SPECIFIK STYLING *****/
@@ -294,5 +313,19 @@ img {
     justify-content: flex-start;
   }
 }
-
 </style>
+
+<script>
+const wishlistButton = document.getElementById("wishlistButton");
+const heartIcon = wishlistButton.querySelector("i");
+
+wishlistButton.addEventListener("click", () => {
+  wishlistButton.classList.toggle("active");
+
+  if (wishlistButton.classList.contains("active")) {
+    heartIcon.classList.replace("fa-regular", "fa-solid"); // Udfyldt hjerte
+  } else {
+    heartIcon.classList.replace("fa-solid", "fa-regular"); // Tomt hjerte
+  }
+});
+</script>
