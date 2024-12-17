@@ -1,0 +1,110 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+---
+
+<body>
+  <header>
+    <Navigation />
+  </header>
+
+<h1 class="h1costume" >Costum made</h1>
+<section class="grid_1-1">
+    
+    <p class="costumep" >At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
+    <img class="costumeimg1" src="./gallery/costume1.png" alt="costume" width="325px">
+        
+    </section>
+
+    <section class="grid_1-2" >
+        <img class="costumeimg2" src="./gallery/costume2.png" alt="costume">
+        <p class="costumepp">
+            Put together your style: 1. You choose the product's design, colors and any details such as patterns, materials or personal additions (e.g. initials or special symbols).
+            How to order: 2. When you have designed your product, you put it in the basket and complete your order.
+            Production time: 3. As your product is custom made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</p>
+            
+    </section>
+
+    <h1 class="faq" >Frequently asked questions</h1>
+
+    <style>
+    @media (max-width: 768px) {
+    .grid_1-1 {
+    gap: 50px;
+    padding: 30px 10px;
+   }
+
+  .grid_1-2 {
+    gap: 50px;
+    padding: 30px 10px;
+  } 
+
+  .costumeimg1, .costumeimg2 {
+    
+    width: 100%;
+}
+
+}
+  @media (min-width: 768px) {
+    .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 30px 10px;
+  } 
+
+  .grid_1-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 30px 10px;
+  } 
+.costumeimg1, .costumeimg2 {
+    width: 60%;
+}
+
+.costumeimg1 {
+    margin-left: 50px;
+    margin-left: 60px;
+}
+
+.costumeimg2 {
+    margin-left: 80px;
+    top: 30px;
+}
+
+.h1costume {
+color: #000;
+font-family: "Courier New";
+font-size: 100px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+
+}
+
+.h1costume {
+  margin-left: 60px;
+}
+
+.costumep, .costumepp {
+width: 70%;
+}
+
+.costumepp, .costumep, {
+  margin-left: 60px;
+}
+
+
+
+}
+  
+    </style>
+    
+    
+      <main>
+      </main>
+      <Footer />
+    </body>
+  </html>
