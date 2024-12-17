@@ -9,102 +9,156 @@ import Navigation from "../components/Navigation.astro";
     <Navigation />
   </header>
 
-<h1 class="h1costume" >Costum made</h1>
-<section class="grid_1-1">
-    
-    <p class="costumep" >At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
-    <img class="costumeimg1" src="./gallery/costume1.png" alt="costume" width="325px">
+
+  <div class="grid-container">
+   
+    <div class="grid-item text">
+      <h1 class="costumh1" >Costum made</h1>
+      <p>At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
+    </div>
+    <div class="grid-item image">
+      <img src="./gallery/costume1.png" alt="costumimg1" width="50%"/>
+    </div>
+
+    <div class="grid-item image">
+      <img src="./gallery/costume2.png" alt="Outfit af pigerne" />
+    </div>
+    <div class="grid-item text">
+      
+      <h2>How it works</h2>
+      <p>
+        Put together your style: You choose the product's design, colors and any details such as patterns, materials or personal additions (e.g. initials or special symbols).
         
-    </section>
+        How to order: When you have designed your product, you put it in the basket and complete your order.
+        
+        Production time: As your product is custom made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</p>
+    </div>
 
-    <section class="grid_1-2" >
-        <img class="costumeimg2" src="./gallery/costume2.png" alt="costume">
-        <p class="costumepp">
-            Put together your style: 1. You choose the product's design, colors and any details such as patterns, materials or personal additions (e.g. initials or special symbols).
-            How to order: 2. When you have designed your product, you put it in the basket and complete your order.
-            Production time: 3. As your product is custom made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</p>
-            
-    </section>
+    <div class="grid-item text">
+      <h2>Frequently Asked Questions</h2>
+      <button class="accordion">What is a Payment Gateway?</button>
+      <div class="panel">
+        <p>With one of the lowest transaction charges in the industry, pay only when you get paid!</p>
+      </div>
+      
+      <button class="accordion">Do I need to pay to Instapay even when there is no transaction going on in my business?</button>
+      <div class="panel">
+        <p>No, you do not need to pay Instapay where there is no transaction happening.</p>
+      </div>
+      
+      <button class="accordion">What platforms does Instapay payment gateway support?</button>
+      <div class="panel">
+        <p>Instapay helps you accept online payments form costumers across dekstop, mobile web, Android and IOS globally.</p>
+      </div>
 
-    <h1 class="faq" >Frequently asked questions</h1>
+      <button class="accordion">Does Instapay provide international payments support?</button>
+      <div class="panel">
+        <p>Yes, Instapay provides support for international transactions. We support all major international cards and 92 currencies including USD, EUR, GBP, SGD and AED.</p>
+      </div>
 
-    <style>
-    @media (max-width: 768px) {
-    .grid_1-1 {
-    gap: 50px;
-    padding: 30px 10px;
-   }
+      <button class="accordion">Is there any setup fee or annual maintainance fee that I need to pay regularly?</button>
+      <div class="panel">
+        <p>We do not charge for the setup and annual maintainance. You only pay for the plan that you are opting to.</p>
+      </div>
 
-  .grid_1-2 {
-    gap: 50px;
-    padding: 30px 10px;
-  } 
+    </div>
+  </div>
 
-  .costumeimg1, .costumeimg2 {
-    
+
+  <style>
+      .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+  }
+
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .grid-item.image img {
     width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2,
+  p,
+  img {
+    padding: 20px;
+  }
+
+  .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
 }
 
-}
-  @media (min-width: 768px) {
-    .grid_1-1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    padding: 30px 10px;
-  } 
-
-  .grid_1-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    padding: 30px 10px;
-  } 
-.costumeimg1, .costumeimg2 {
-    width: 60%;
+.active, .accordion:hover {
+  background-color: #ccc;
 }
 
-.costumeimg1 {
-    margin-left: 50px;
-    margin-left: 60px;
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
 }
 
-.costumeimg2 {
-    margin-left: 80px;
-    top: 30px;
-}
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+.costumeh1 {
 
-.h1costume {
-color: #000;
 font-family: "Courier New";
 font-size: 100px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-
 }
 
-.h1costume {
-  margin-left: 60px;
+  }
+  </style>
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
 }
-
-.costumep, .costumepp {
-width: 70%;
-}
-
-.costumepp, .costumep, {
-  margin-left: 60px;
-}
+</script>
 
 
 
-}
-  
-    </style>
-    
-    
-      <main>
-      </main>
-      <Footer />
-    </body>
-  </html>
+  </body>
+  <Footer />
+</html>
+
