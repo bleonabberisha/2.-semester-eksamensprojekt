@@ -14,16 +14,21 @@ import Navigation from "../components/Navigation.astro";
       <h1 class="costumh1">Costum made</h1>
       <p>At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
     </div>
-    <div class="grid-item image">
-      <img src="/gallery/costume1.png" alt="costumimg1" />
-    </div>
 
     <div class="grid-item image">
       <img src="/gallery/costume2.png" alt="Outfit af pigerne" />
     </div>
     <div class="grid-item text">
       <h2 class="howitworks">How it works</h2>
-      <p>Put together your style: You choose the product's design, colors and any details such as patterns, materials or personal additions (e.g. initials or special symbols). How to order: When you have designed your product, you put it in the basket and complete your order. Production time: As your product is custom made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</p>
+      <ol>
+        <li>Put together your style: You choose the product's design, colors, and any details such as patterns, materials, or personal additions (e.g., initials or special symbols).</li>
+        <li>How to order: When you have designed your product, you put it in the basket and complete your order.</li>
+        <li>Production time: As your product is custom-made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</li>
+      </ol>
+    </div>
+
+    <div class="grid-item image">
+      <img src="/gallery/costume1.png" alt="costumimg1" />
     </div>
 
     <div class="grid-item text">
@@ -126,6 +131,22 @@ import Navigation from "../components/Navigation.astro";
       display: none;
       overflow: hidden;
     }
+
+    ol {
+      margin-top: 10px;
+      padding-left: 20px; /* Indrykning for listen */
+      list-style-position: inside; /* Nummerering indenfor teksten */
+    }
+
+    ol li {
+      margin-bottom: 10px; /* Afstand mellem punkter */
+      line-height: 1.6; /* For bedre læsbarhed */
+    }
+
+    ol li strong {
+      font-weight: bold;
+    }
+
     @media (min-width: 1000px) {
       .grid-item.text {
         justify-content: flex-start;

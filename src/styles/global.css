@@ -30,7 +30,8 @@ h6 {
 
   p,
   a,
-  button {
+  button,
+  li {
     font-size: 14px;
     font-family: "Courier Prime", monospace;
     text-decoration: none;
