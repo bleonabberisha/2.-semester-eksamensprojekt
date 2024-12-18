@@ -15,19 +15,19 @@ import Navigation from "../components/Navigation.astro";
       <p>At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
     </div>
     <div class="grid-item image">
-      <img src="./gallery/costume1.png" alt="costumimg1"  />
+      <img src="/gallery/costume1.png" alt="costumimg1" />
     </div>
 
     <div class="grid-item image">
-      <img src="./gallery/costume2.png" alt="Outfit af pigerne" />
+      <img src="/gallery/costume2.png" alt="Outfit af pigerne" />
     </div>
     <div class="grid-item text">
-      <h2 class="howitworks" >How it works</h2>
+      <h2 class="howitworks">How it works</h2>
       <p>Put together your style: You choose the product's design, colors and any details such as patterns, materials or personal additions (e.g. initials or special symbols). How to order: When you have designed your product, you put it in the basket and complete your order. Production time: As your product is custom made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</p>
     </div>
 
     <div class="grid-item text">
-      <h2 class="questions" >Frequently Asked Questions</h2>
+      <h2 class="questions">Frequently Asked Questions</h2>
       <button class="accordion">What is a Payment Gateway?</button>
       <div class="panel">
         <p>With one of the lowest transaction charges in the industry, pay only when you get paid!</p>
@@ -64,7 +64,8 @@ import Navigation from "../components/Navigation.astro";
       max-width: 1200px;
     }
 
-    .howitworks, .questions {
+    .howitworks,
+    .questions {
       font-weight: bold;
     }
 
@@ -137,8 +138,6 @@ import Navigation from "../components/Navigation.astro";
         white-space: nowrap; /* Forhindrer tekst i at bryde linjer */
         overflow: hidden; /* Skjuler overskydende tekst, hvis den er for lang */
       }
-
-
     }
 
     @media (max-width: 768px) {
