@@ -22,12 +22,12 @@ import Navigation from "../components/Navigation.astro";
       <img src="./gallery/costume2.png" alt="Outfit af pigerne" />
     </div>
     <div class="grid-item text">
-      <h2>How it works</h2>
+      <h2 class="howitworks" >How it works</h2>
       <p>Put together your style: You choose the product's design, colors and any details such as patterns, materials or personal additions (e.g. initials or special symbols). How to order: When you have designed your product, you put it in the basket and complete your order. Production time: As your product is custom made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</p>
     </div>
 
     <div class="grid-item text">
-      <h2>Frequently Asked Questions</h2>
+      <h2 class="questions" >Frequently Asked Questions</h2>
       <button class="accordion">What is a Payment Gateway?</button>
       <div class="panel">
         <p>With one of the lowest transaction charges in the industry, pay only when you get paid!</p>
@@ -62,6 +62,10 @@ import Navigation from "../components/Navigation.astro";
       gap: 40px;
       margin: 40px auto;
       max-width: 1200px;
+    }
+
+    .howitworks, .questions {
+      font-weight: bold;
     }
 
     .grid-item {
@@ -129,7 +133,7 @@ import Navigation from "../components/Navigation.astro";
 
       .costumh1 {
         font-size: 70px;
-        margin: 80px;
+        margin: 70px;
         white-space: nowrap; /* Forhindrer tekst i at bryde linjer */
         overflow: hidden; /* Skjuler overskydende tekst, hvis den er for lang */
       }
