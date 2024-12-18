@@ -7,12 +7,12 @@ import BurgerMenu from "./BurgerMenu.astro";
   <BurgerMenu />
 
   <!-- Søgefunktion -->
-  <form class="search-container" action="/search" method="get">
-    <input id="search-box" type="text" class="search-box" name="q" placeholder="Search" />
-    <button type="submit" class="search-button">
-      <img src="/gallery/searchIcon.webp" alt="Search Icon" />
-    </button>
-  </form>
+  <div class="search-wrapper">
+    <img src="/gallery/searchIcon.webp" alt="Search Icon" class="search-icon" />
+    <form class="search-container hidden" action="/search" method="get">
+      <input id="search-box" type="text" class="search-box" name="q" placeholder="Search" disabled />
+    </form>
+  </div>
 
   <!-- Logo -->
   <a href="/" class="logo-container">
@@ -32,7 +32,7 @@ import BurgerMenu from "./BurgerMenu.astro";
     <a href="/list">SHOP</a>
     <div class="dropdown-content">
       <a href="/rimini">RIMINI</a>
-      <a href="/businessCasual">CASUAL BUSINESS</a>
+      <a href="/businessCasual">BUSINESS CASUAL</a>
       <a href="/takeCare">TAKE CARE</a>
     </div>
   </div>
@@ -65,9 +65,14 @@ import BurgerMenu from "./BurgerMenu.astro";
   .dropdown-content {
     display: none;
     position: absolute;
+    left: 50%; /* Centrerer dropdown i forhold til forælder */
+    transform: translateX(-50%); /* Justerer positionen tilbage med halvdelen af bredden */
     background-color: white;
     min-width: 160px;
     z-index: 1;
+    border: 0.2px solid black;
+    text-align: left; /* Holder teksten venstrejusteret inden i dropdown */
+    padding-top: 10px;
   }
 
   .dropdown-content a {
@@ -129,17 +134,39 @@ import BurgerMenu from "./BurgerMenu.astro";
     text-decoration: none;
     color: black;
     font-weight: bold;
+    font-size: 18px;
   }
 
-  /* Styling af søgebar */
+  /* Søgefunktion styling */
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-start; /* Placerer ikonet i venstre side */
+  }
+
+  .search-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 10px; /* Lidt afstand til søgefeltet */
+  }
+
   .search-container {
     display: flex;
     align-items: center;
+    position: absolute;
+    left: 40px; /* Justér afstanden fra venstre */
+    top: 0;
+    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 5px 10px;
-    background-color: #fff;
-    width: 170px;
+    transition: all 0.3s ease;
+  }
+
+  .hidden {
+    display: none; /* Skjuler søgefeltet som standard */
   }
 
   .search-box {
@@ -148,17 +175,8 @@ import BurgerMenu from "./BurgerMenu.astro";
     font-size: 14px;
     padding: 5px;
     width: 120px;
-  }
-
-  .search-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .search-button img {
-    width: 20px;
-    height: 20px;
+    background: transparent;
+    cursor: not-allowed; /* Indikerer, at feltet ikke er aktivt */
   }
 
   @media (max-width: 768px) {
@@ -173,8 +191,8 @@ import BurgerMenu from "./BurgerMenu.astro";
 </style>
 
 <script>
-  document.querySelector(".search-button").addEventListener("click", function (event) {
-    event.preventDefault(); // Forhindrer formularen i at blive sendt - er ikke
-    console.log("Søgeikonet blev klikket, men der sker ingenting.");
+  document.querySelector(".search-icon").addEventListener("click", () => {
+    const searchContainer = document.querySelector(".search-container");
+    searchContainer.classList.toggle("hidden"); // Viser/skjuler søgefeltet
   });
 </script>

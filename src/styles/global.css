@@ -15,35 +15,54 @@ h6 {
   font-weight: normal;
 }
 
-/* Styling for Mobil */
+/* Basis styling - gælder for alle skærmstørrelser */
+h1 {
+  font-family: "Courier Prime", monospace;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Courier Prime", monospace;
+  text-decoration: none;
+}
+
+p,
+a,
+button,
+li {
+  font-family: "Courier Prime", monospace;
+  text-decoration: none;
+}
+
+.carousel-item {
+  height: auto;
+}
+
+.carousel-track {
+  animation: scroll 20s linear infinite;
+}
+
+/* Mobil styling */
 @media (max-width: 768px) {
   h1 {
-    font-size: 28px;
-    font-family: "Courier Prime", monospace;
-    font-weight: bold;
+    font-size: 28px; /* Mindre skriftstørrelse til mobil */
   }
   h2 {
     font-size: 20px;
-    font-family: "Courier Prime", monospace;
-    text-decoration: none;
   }
-
   p,
   a,
   button,
   li {
     font-size: 14px;
-    font-family: "Courier Prime", monospace;
-    text-decoration: none;
   }
 
   .carousel-item {
-    width: 150px;
+    width: 150px; /* Justeret bredde til mobil */
   }
 
   .carousel-track {
-    gap: 10px;
-    animation: scroll 15s linear infinite;
+    gap: 10px; /* Mindre afstand mellem elementer */
   }
 
   .carousel-container {
@@ -51,45 +70,26 @@ h6 {
   }
 }
 
-/* Tablet (mellem 769px og 1024px) */
-@media (max-width: 1024px) {
-  .carousel-item {
-    width: 180px;
-  }
-
-  .carousel-track {
-    gap: 15px;
-    animation: scroll 18s linear infinite;
-  }
-}
-
-/* Styling for desktop */
-@media (min-width: 768px) {
+/* Styling for større skærme */
+@media (min-width: 769px) {
   h1 {
-    font-size: 36px;
-    font-family: "Courier Prime", monospace;
-    font-weight: bold;
+    font-size: 50px; /* Større skriftstørrelse til desktop */
   }
   h2 {
     font-size: 28px;
-    font-family: "Courier Prime", monospace;
   }
   p,
   a,
   button,
   li {
     font-size: 16px;
-    font-family: "Courier Prime", monospace;
-    text-decoration: none;
   }
 
   .carousel-item {
-    width: 220px;
-    height: auto;
+    width: 220px; /* Større bredde til desktop */
   }
 
   .carousel-track {
-    gap: 20px;
-    animation: scroll 20s linear infinite;
+    gap: 20px; /* Større afstand mellem elementer */
   }
 }
