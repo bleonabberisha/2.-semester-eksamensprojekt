@@ -27,144 +27,69 @@
     height: auto;
   }
 
-  .shop-button:hover {
+  .grid1-tekst {
+    position: absolute;
+    top: 45%; /* Juster placeringen lodret */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+
+  .overskrift1 {
+    font-size: 80px; /* Justeret størrelse */
+    font-weight: 700;
+    margin: 0 0 10px; /* Plads under overskriften */
+  }
+
+  .underoverskrift1 {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
+    margin-bottom: 20px; /* Plads under citatet */
+  }
+
+  .shop-button {
+    display: inline-block;
     background-color: #4d0000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px; /* Passende størrelse */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      transform 0.2s,
+      background-color 0.2s;
+  }
+
+  .shop-button:hover {
+    background-color: #8b0000;
     transform: scale(1.05);
   }
 
   .shop-button:active {
     transform: scale(0.95);
-    background-color: #4d0000;
   }
 
-  /* @media screen and (max-width: 600px) { */
-    .overskrift1 {
-<<<<<<< HEAD
-      padding: 10px; /* Rettet padding */
-      font-size: 40px;
-      font-weight: 700;
-      letter-spacing: -5px;
-      margin-top: 100px;
+  /* Mobilvisning */
+  @media screen and (max-width: 600px) {
+    .grid1-tekst {
+      top: 50%; /* Juster lodret placering på mobil */
     }
+
+    .overskrift1 {
+      font-size: 40px; /* Mindre overskrift */
+    }
+
     .underoverskrift1 {
-      font-family: "Courier New", Courier, monospace;
-      text-align: center;
-      font-size: 10px;
+      font-size: 12px; /* Mindre citattekst */
     }
 
     .shop-button {
-      background-color: #4d0000;
-      color: #fff;
-      font-weight: bold;
-      font-size: 8px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition:
-        transform 0.2s,
-        background-color 0.2s;
-      text-decoration: none;
-    }
-    
-    .button-container {
-      margin-top: 20px;
-    }
-
-<<<<<<< HEAD
-    .grid1-tekst {
-      position: absolute;
-      top: 35%; /* Rykker teksten og knappen op (fra 40% til 35%) */
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
+      font-size: 14px; /* Mindre knaptekst */
+      padding: 8px 15px; /* Mindre knapstørrelse */
     }
   }
-
-  @media screen and (min-width: 600px) {
-    .overskrift1 {
-      padding: 10px;
-      font-size: 100px;
-      font-weight: 700;
-      letter-spacing: -5px;
-      margin-top: 70px;
-    }
-    .underoverskrift {
-      font-family: "Courier New", Courier, monospace;
-      font-size: 30px;
-      text-align: center;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-    }
-    .grid1-tekst {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-    }
-=======
-  }
-  .grid1-tekst {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
-  /* } */
-
-  /* @media screen and (min-width: 600px) {
-  .overskrift1 {
-    padding: 10x;
-    font-size: 100px;
-    font-weight: 700;
-    letter-spacing: -5px;
-    margin-top: 70px;
-  }
-  .underoverskrift {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  .grid1-tekst {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
->>>>>>> 9a2008c0f4650da999ac8f4cf44ca14f1c4ed5b8
-
-    .button-container {
-      margin-top: 50px;
-    }
-
-    .shop-button {
-      background-color: #4d0000;
-      color: #fff;
-      font-weight: bold;
-      font-size: 25px;
-      padding: 20px 40px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition:
-        transform 0.2s,
-        background-color 0.2s;
-      text-decoration: none;
-    }
-  }
-<<<<<<< HEAD
-=======
-} */
->>>>>>> 9a2008c0f4650da999ac8f4cf44ca14f1c4ed5b8
 </style>
