@@ -15,7 +15,7 @@ import Navigation from "../components/Navigation.astro";
       <p>At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
     </div>
     <div class="grid-item image">
-      <img src="./gallery/costume1.png" alt="costumimg1" width="50%" />
+      <img src="./gallery/costume1.png" alt="costumimg1"  />
     </div>
 
     <div class="grid-item image">
@@ -70,7 +70,7 @@ import Navigation from "../components/Navigation.astro";
       justify-content: center;
     }
 
-    .grid-item.image img {
+    .grid-item image {
       width: 100%;
       height: auto;
       object-fit: cover;
@@ -121,7 +121,7 @@ import Navigation from "../components/Navigation.astro";
       display: none;
       overflow: hidden;
     }
-    @media (min-width: 768px) {
+    @media (min-width: 1000px) {
       .grid-item.text {
         justify-content: flex-start;
         padding-top: 20px;
@@ -133,6 +133,8 @@ import Navigation from "../components/Navigation.astro";
         white-space: nowrap; /* Forhindrer tekst i at bryde linjer */
         overflow: hidden; /* Skjuler overskydende tekst, hvis den er for lang */
       }
+
+
     }
 
     @media (max-width: 768px) {
