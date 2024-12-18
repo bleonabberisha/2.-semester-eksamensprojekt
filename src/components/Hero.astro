@@ -1,3 +1,7 @@
+---
+
+---
+
 <div class="hero">
   <div class="grid1-tekst">
     <!-- Shop Knap -->
@@ -35,11 +39,11 @@
 
   @media screen and (max-width: 600px) {
     .overskrift1 {
-      padding: 1x;
+      padding: 10px; /* Rettet padding */
       font-size: 40px;
       font-weight: 700;
       letter-spacing: -5px;
-      margin-top: 160px;
+      margin-top: 100px;
     }
     .underoverskrift1 {
       font-family: "Courier New", Courier, monospace;
@@ -52,7 +56,7 @@
       color: #fff;
       font-weight: bold;
       font-size: 8px;
-      padding: 7px 10px;
+      padding: 10px 15px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -65,9 +69,10 @@
     .button-container {
       margin-top: 20px;
     }
+
     .grid1-tekst {
       position: absolute;
-      top: 40%;
+      top: 35%; /* Rykker teksten og knappen op (fra 40% til 35%) */
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -77,7 +82,7 @@
 
   @media screen and (min-width: 600px) {
     .overskrift1 {
-      padding: 10x;
+      padding: 10px;
       font-size: 100px;
       font-weight: 700;
       letter-spacing: -5px;

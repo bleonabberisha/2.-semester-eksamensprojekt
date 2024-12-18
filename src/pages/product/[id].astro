@@ -112,8 +112,12 @@ try {
   <div class="details_content">
     <h1>{product.name}</h1>
     <p class="price">{product.price},00 kr.</p>
+        <h2>Description</h2>
     <p class="description">
       {product.description || "Ingen beskrivelse tilgængelig."}
+    </p>
+        <p class="details">
+      {product.details || "Ingen beskrivelse tilgængelig."}
     </p>
     <div class="buttons">
       <button>ADD TO BASKET</button>
