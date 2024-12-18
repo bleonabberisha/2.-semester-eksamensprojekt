@@ -25,12 +25,15 @@ h6 {
   h2 {
     font-size: 20px;
     font-family: "Courier Prime", monospace;
+    text-decoration: none;
   }
 
   p,
-  a {
+  a,
+  button {
     font-size: 14px;
     font-family: "Courier Prime", monospace;
+    text-decoration: none;
   }
 
   .carousel-item {
@@ -75,6 +78,7 @@ h6 {
   button {
     font-size: 16px;
     font-family: "Courier Prime", monospace;
+    text-decoration: none;
   }
 
   .carousel-item {
