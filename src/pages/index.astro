@@ -12,14 +12,11 @@ const products = [
 
 <MainLayout>
   <Hero />
-
-
   <div class="grid1_1">
     <div class="left-column">
       <h1>OUR CONCEPT</h1>
       <p>All Solrig's designs are created with consideration and sustainability in focus. Pass on this thoughtfulness with carefully selected gifts for both the home and the wardrobe. Explore our gift shop and find inspiration for thoughtful choices.</p>
     </div>
-    
 
     <div class="right-column">
       <Carousel products={products} />
@@ -31,6 +28,7 @@ const products = [
 </MainLayout>
 
 <style>
+  /* Generel styling */
   .citat {
     margin-top: 100px;
     text-align: center;
@@ -47,89 +45,87 @@ const products = [
 
   .grid1_1 {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 50px; 
-    align-items: start; 
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
     margin-top: 50px;
   }
 
-
   .left-column {
     display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: left; 
-    padding: 70px; 
-    text-align: left; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 70px;
+    text-align: left;
     height: 100%;
   }
 
-
   .left-column h1 {
-    margin-bottom: 45px; 
+    margin-bottom: 45px;
     text-align: center;
   }
 
   .left-column p {
     margin-top: 0;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
   }
 
   .right-column {
-    max-width: 750px; 
-    margin-left: auto; 
+    max-width: 100%; /* Sørger for, at kolonnen ikke overskrider skærmen */
+    overflow-x: auto; /* Aktiver horisontal scrolling */
+    white-space: nowrap; /* Holder elementer på én linje */
+    -ms-overflow-style: none; /* Skjuler scrollbar i IE */
+    scrollbar-width: none; /* Skjuler scrollbar i Firefox */
   }
 
-  .right-column .carousel {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 10px; 
+  .right-column::-webkit-scrollbar {
+    display: none; /* Skjuler scrollbar i Chrome og Safari */
   }
 
+  .carousel {
+    display: inline-flex; /* Holder elementerne på én linje */
+    gap: 10px; /* Afstand mellem billeder */
+  }
 
   .carousel img {
-    width: 150%;
+    width: 250px; /* Fast bredde til billeder */
     height: auto;
-    object-fit: cover; 
+    object-fit: cover; /* Sørger for korrekt tilpasning af billedet */
+    border-radius: 10px; /* Valgfri: afrundede hjørner */
   }
 
-  @media screen and (max-width: 800px) { 
+  /* Responsiv styling for små skærme */
+  @media screen and (max-width: 800px) {
     .left-column {
       padding: 0px;
+      margin-left: 20px;
     }
+
     .left-column p {
       font-size: 15px;
       margin-top: -10px;
-      width: 440px;
+      width: 100%;
     }
+
     .left-column h1 {
       margin-top: -10px;
       text-align: left;
     }
 
-    .carousel {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 10px; 
+    .right-column {
+      max-width: 100%;
+      margin-left: 0;
+    }
+
+    .carousel img {
+      width: 150px; /* Mindre billeder på små skærme */
+    }
+
+    .grid1_1 {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      align-items: start;
+    }
   }
-
-  .right-column {
-    max-width: 750px; 
-    margin-left: auto; 
-  }
-
-  .grid1_1 {
-    grid-template-columns: 1fr; 
-    gap: 50px; 
-    align-items: start; 
-   
-  }
-
-  
-
-   }
-
- 
-
-  
 </style>

@@ -6,6 +6,14 @@ import BurgerMenu from "./BurgerMenu.astro";
   <!-- BurgerMenu -->
   <BurgerMenu />
 
+  <!-- Søgefunktion -->
+  <form class="search-container" action="/search" method="get">
+    <input id="search-box" type="text" class="search-box" name="q" placeholder="Search" />
+    <button type="submit" class="search-button">
+      <img src="/gallery/searchIcon.webp" alt="Search Icon" />
+    </button>
+  </form>
+
   <!-- Logo -->
   <a href="/" class="logo-container">
     <img class="logo" src="/gallery/solrig_logo.webp" alt="logo" />
@@ -36,10 +44,10 @@ import BurgerMenu from "./BurgerMenu.astro";
   /* Navigation styling */
   nav {
     display: grid;
-    grid-template-columns: 1fr auto 1fr; /* Tre kolonner: venstre, center (logo), højre */
-    align-items: center; /* Centrer indhold lodret */
-    padding: 0 20px; /* Polstring */
-    border-bottom: 0.5px solid black; /* Tilføj en streg */
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 0.5px solid black;
   }
 
   .dropdown {
@@ -81,12 +89,12 @@ import BurgerMenu from "./BurgerMenu.astro";
   /* Logo styling */
   .logo-container {
     display: block;
-    grid-column: 2; /* Placer logo-container i midten */
-    justify-self: center; /* Centrer logo-container vandret */
+    grid-column: 2;
+    justify-self: center;
   }
 
   .logo {
-    max-width: 150px; /* Begræns logoets bredde */
+    max-width: 200px;
     height: auto;
   }
 
@@ -122,9 +130,51 @@ import BurgerMenu from "./BurgerMenu.astro";
     color: black;
     font-weight: bold;
   }
+
+  /* Styling af søgebar */
+  .search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #fff;
+    width: 170px;
+  }
+
+  .search-box {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 5px;
+    width: 120px;
+  }
+
+  .search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .search-button img {
+    width: 20px;
+    height: 20px;
+  }
+
   @media (max-width: 768px) {
     .linje_menu {
-      display: none !important; /* Skjul linje menuen */
+      display: none !important;
+    }
+
+    .search-container {
+      display: none;
     }
   }
 </style>
+
+<script>
+  document.querySelector(".search-button").addEventListener("click", function (event) {
+    event.preventDefault(); // Forhindrer formularen i at blive sendt - er ikke
+    console.log("Søgeikonet blev klikket, men der sker ingenting.");
+  });
+</script>
