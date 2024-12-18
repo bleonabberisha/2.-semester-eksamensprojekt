@@ -19,15 +19,15 @@ import MainLayout from "../layouts/MainLayout.astro";
     </div>
     <div class="grid-item text">
       <p class="citat">“We design clothes that adapt to you—not the other way around. Size is just a number; comfort and confidence are what truly matter.”</p>
-      <h2>Sizing</h2>
+      <h2 class="size" >Sizing</h2>
       <p>Solrig’s vision is to make sizing more inclusive and adaptable to women’s bodies through all stages of life. By using sizes 1, 2, and 3 instead of traditional labels like S, M, and L, they aim to remove the pressure and inconsistency often found in the fashion industry. Whether a woman is pregnant or experiencing body changes, Solrig designs pieces, like blazers, to fit and empower her.</p>
     </div>
 
     <!-- Row 3 -->
     <div class="grid-item text">
-      <h2>Design</h2>
+      <h2 class="design" >Design</h2>
       <p>All products are designed from the thoughts of giving discarded materials a new value and to be a piece you can have in your wardrobe for many years.</p>
-      <h2>Production</h2>
+      <h2 class="production" >Production</h2>
       <p>Everything is designed, developed and produced in Copenhagen. It’s important for us to be a very close part of the production of every piece.</p>
     </div>
     <div class="grid-item image">
@@ -43,6 +43,10 @@ import MainLayout from "../layouts/MainLayout.astro";
     gap: 40px;
     margin: 40px auto;
     max-width: 1200px;
+  }
+
+  .size, .design, .production {
+    font-weight: bold;
   }
 
   .grid-item {
