@@ -1,12 +1,13 @@
 ---
 import "../styles/global.css";
 import MainLayout from "../layouts/MainLayout.astro";
+const title = "Custom made";
 ---
 
 <MainLayout>
   <div class="grid-container">
     <div class="grid-item text">
-      <h1 class="costumh1">Custom made</h1>
+      <h1 class="costumh1">CUSTOM MADE</h1>
       <p>At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
     </div>
 
@@ -61,6 +62,17 @@ import MainLayout from "../layouts/MainLayout.astro";
 </MainLayout>
 
 <style>
+  .grid-item.text h1 {
+    text-align: left;
+    margin: 0;
+    padding: 30px;
+  }
+
+  .grid-item.text p {
+    margin: 0;
+    padding: 20px;
+  }
+
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -155,7 +167,6 @@ import MainLayout from "../layouts/MainLayout.astro";
     }
 
     .costumh1 {
-      font-size: 70px;
       margin: 70px;
       white-space: nowrap; /* Forhindrer tekst i at bryde linjer */
       overflow: hidden; /* Skjuler overskydende tekst, hvis den er for lang */

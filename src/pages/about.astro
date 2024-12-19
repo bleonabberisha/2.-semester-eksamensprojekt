@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+const title = "About solrig";
 ---
 
 <MainLayout>
@@ -12,22 +13,25 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div class="grid-item image">
       <img src="/gallery/moede.webp" alt="Møde" />
     </div>
+  </div>
 
+  <p class="citat">“We design clothes that adapt to you—not the other way around. Size is just a number; comfort and confidence are what truly matter.”</p>
+
+  <div class="grid-container">
     <!-- Row 2 -->
     <div class="grid-item image">
       <img src="/gallery/pigerneSammen.webp" alt="Outfit af pigerne" />
     </div>
     <div class="grid-item text">
-      <p class="citat">“We design clothes that adapt to you—not the other way around. Size is just a number; comfort and confidence are what truly matter.”</p>
-      <h2 class="size" >Sizing</h2>
+      <h2 class="size">Sizing</h2>
       <p>Solrig’s vision is to make sizing more inclusive and adaptable to women’s bodies through all stages of life. By using sizes 1, 2, and 3 instead of traditional labels like S, M, and L, they aim to remove the pressure and inconsistency often found in the fashion industry. Whether a woman is pregnant or experiencing body changes, Solrig designs pieces, like blazers, to fit and empower her.</p>
     </div>
 
     <!-- Row 3 -->
     <div class="grid-item text">
-      <h2 class="design" >Design</h2>
+      <h2 class="design">Design</h2>
       <p>All products are designed from the thoughts of giving discarded materials a new value and to be a piece you can have in your wardrobe for many years.</p>
-      <h2 class="production" >Production</h2>
+      <h2 class="production">Production</h2>
       <p>Everything is designed, developed and produced in Copenhagen. It’s important for us to be a very close part of the production of every piece.</p>
     </div>
     <div class="grid-item image">
@@ -37,6 +41,17 @@ import MainLayout from "../layouts/MainLayout.astro";
 </MainLayout>
 
 <style>
+  .grid-item.text h1 {
+    text-align: left;
+    margin: 0;
+    padding: 30px;
+  }
+
+  .grid-item.text p {
+    margin: 0;
+    padding: 20px;
+  }
+
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -45,7 +60,9 @@ import MainLayout from "../layouts/MainLayout.astro";
     max-width: 1200px;
   }
 
-  .size, .design, .production {
+  .size,
+  .design,
+  .production {
     font-weight: bold;
   }
 
@@ -63,6 +80,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   h1 {
     text-align: center;
+    margin: 20px;
   }
 
   h2,
@@ -72,12 +90,25 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   .citat {
-    font-weight: bold;
+    margin: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 5px;
+    font-weight: medium;
+    max-width: 800px;
+    width: 100%;
   }
 
   @media (max-width: 768px) {
     .grid-container {
       grid-template-columns: 1fr;
+    }
+    .citat {
+      font-size: 15px;
+      max-width: 350px;
+      width: 100%;
     }
   }
 </style>
