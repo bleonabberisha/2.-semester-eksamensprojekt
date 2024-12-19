@@ -59,9 +59,9 @@ try {
 }
 ---
 <link
-  rel="stylesheet"
+   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
+/> 
 <MainLayout>
     <main class="container">
       {product ? (
@@ -111,9 +111,9 @@ try {
 <!-- Højre side: Detaljer -->
 <div class="details">
   <div class="details_content">
-    <h1>{product.name}</h1>
+    <h2>{product.name}</h2>
     <p class="price">{product.price},00 kr.</p>
-        <h2>Description</h2>
+        <h3>Description</h3>
     <p class="description">
       {product.description || "Ingen beskrivelse tilgængelig."}
     </p>
@@ -128,7 +128,9 @@ try {
 </button>
 
     </div>
+    
   </div>
+  
 </div>
 
 
@@ -136,6 +138,8 @@ try {
  ) : (
 <p>Produktet blev ikke fundet.</p>
    )}
+
+
   </main>
 </MainLayout>
 
@@ -159,6 +163,7 @@ body {
   text-decoration: none;
   color: #8b0000;
   transition: color 0.3s ease;
+  fon
 }
 
 .breadcrumb a:hover {
@@ -187,7 +192,7 @@ img {
   display: grid;
   grid-template-columns: 2fr 1fr; 
   gap: 20px;
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 40px auto;
   padding: 20px;
 }
@@ -228,6 +233,10 @@ img {
 
 .details_content h1 {
   margin: 0; 
+}
+
+h2 {
+  font-weight: bold;
 }
 
 .details_content .price {

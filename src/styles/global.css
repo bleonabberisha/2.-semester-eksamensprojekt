@@ -26,12 +26,17 @@ h2 {
   text-decoration: none;
 }
 
+h3 {
+  font-family: "Courier Prime", monospace;
+  text-decoration: none;
+}
+
 p,
 a,
 button,
 li,
 .footer-copyright,
-.top-bar {
+.top-bar, .breadcrumb{
   font-family: "Courier Prime", monospace;
   text-decoration: none;
 }
@@ -78,8 +83,13 @@ li,
     font-size: 70px; /* Større skriftstørrelse til desktop */
   }
   h2 {
+    font-size: 35px;
+  }
+
+  h3 {
     font-size: 28px;
   }
+
   p,
   a,
   button,
