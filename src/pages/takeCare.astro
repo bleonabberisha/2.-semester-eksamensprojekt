@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import "../styles/global.css";
 
 const url = "https://bmeqborbvkcxawkfcyti.supabase.co/rest/v1/webshop?category=eq.take care series"; // Hent kun "rimini" produkter
@@ -23,9 +24,7 @@ try {
 }
 ---
 
-<header>
-  <Navigation />
-</header>
+<MainLayout>
 <h1 class="overskrift">TAKE CARE SERIES</h1>
 <main>
   {
@@ -44,7 +43,7 @@ try {
     )
   }
 </main>
-<Footer />
+</MainLayout>
 
 <style>
   .overskrift {
