@@ -113,10 +113,10 @@ try {
   <div class="details_content">
     <h1>{product.name}</h1>
     <p class="price">{product.price},00 kr.</p>
+        <h2>Description</h2>
     <p class="description">
       {product.description || "Ingen beskrivelse tilgængelig."}
     </p>
-    <Size/>
     <div class="buttons">
       <button>ADD TO BASKET</button>
 <button id="wishlistButton" class="wishlist" data-active="false">
@@ -182,7 +182,6 @@ img {
 .container {
   display: grid;
   grid-template-columns: 2fr 1fr; 
-  /* grid-template-rows: auto auto;  */
   gap: 20px;
   max-width: 1200px;
   margin: 40px auto;

@@ -2,32 +2,34 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<body>
-  <header>
-    <Navigation />
-  </header>
-
+<MainLayout>
   <div class="grid-container">
     <div class="grid-item text">
       <h1 class="costumh1">Costum made</h1>
       <p>At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
     </div>
+
     <div class="grid-item image">
-      <img src="./gallery/costume1.png" alt="costumimg1" width="50%" />
+      <img src="/gallery/costume2.png" alt="Outfit af pigerne" />
+    </div>
+    <div class="grid-item text">
+      <h2 class="howitworks">How it works</h2>
+      <ol>
+        <li>Put together your style: You choose the product's design, colors, and any details such as patterns, materials, or personal additions (e.g., initials or special symbols).</li>
+        <li>How to order: When you have designed your product, you put it in the basket and complete your order.</li>
+        <li>Production time: As your product is custom-made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</li>
+      </ol>
     </div>
 
     <div class="grid-item image">
-      <img src="./gallery/costume2.png" alt="Outfit af pigerne" />
-    </div>
-    <div class="grid-item text">
-      <h2>How it works</h2>
-      <p>Put together your style: You choose the product's design, colors and any details such as patterns, materials or personal additions (e.g. initials or special symbols). How to order: When you have designed your product, you put it in the basket and complete your order. Production time: As your product is custom made, it takes up to 2 weeks to produce from the moment we receive your order. We make sure to keep you updated so you always know how far we are in the process.</p>
+      <img src="/gallery/costume1.png" alt="costumimg1" />
     </div>
 
     <div class="grid-item text">
-      <h2>Frequently Asked Questions</h2>
+      <h2 class="questions">Frequently Asked Questions</h2>
       <button class="accordion">What is a Payment Gateway?</button>
       <div class="panel">
         <p>With one of the lowest transaction charges in the industry, pay only when you get paid!</p>
@@ -54,116 +56,137 @@ import Navigation from "../components/Navigation.astro";
       </div>
     </div>
   </div>
+</MainLayout>
 
-  <style>
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+  }
+
+  .howitworks,
+  .questions {
+    font-weight: bold;
+  }
+
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .grid-item image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2,
+  p,
+  img {
+    padding: 20px;
+  }
+
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-weight: bold;
+  }
+
+  .active,
+  .accordion:hover {
+    background-color: #ccc;
+  }
+
+  .accordion:after {
+    content: "\02795"; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+  }
+
+  ol {
+    margin-top: 10px;
+    padding-left: 20px; /* Indrykning for listen */
+    list-style-position: inside; /* Nummerering indenfor teksten */
+  }
+
+  ol li {
+    margin-bottom: 10px; /* Afstand mellem punkter */
+    line-height: 1.6; /* For bedre læsbarhed */
+  }
+
+  ol li strong {
+    font-weight: bold;
+  }
+
+  @media (min-width: 1000px) {
+    .grid-item.text {
+      justify-content: flex-start;
+      padding-top: 20px;
+    }
+
+    .costumh1 {
+      font-size: 70px;
+      margin: 70px;
+      white-space: nowrap; /* Forhindrer tekst i at bryde linjer */
+      overflow: hidden; /* Skjuler overskydende tekst, hvis den er for lang */
+    }
+  }
+
+  @media (max-width: 768px) {
     .grid-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin: 40px auto;
-      max-width: 1200px;
+      grid-template-columns: 1fr;
     }
+    .costumeh1 {
+      font-family: "Courier New";
+      font-size: 100px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+</style>
 
-    .grid-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
 
-    .grid-item.image img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    h2,
-    p,
-    img {
-      padding: 20px;
-    }
-
-    .accordion {
-      background-color: #eee;
-      color: #444;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      text-align: left;
-      border: none;
-      outline: none;
-      transition: 0.4s;
-    }
-
-    .active,
-    .accordion:hover {
-      background-color: #ccc;
-    }
-
-    .accordion:after {
-      content: "\02795"; /* Unicode character for "plus" sign (+) */
-      font-size: 13px;
-      color: #777;
-      float: right;
-      margin-left: 5px;
-    }
-
-    .active:after {
-      content: "\2796"; /* Unicode character for "minus" sign (-) */
-    }
-
-    .panel {
-      padding: 0 18px;
-      background-color: white;
-      display: none;
-      overflow: hidden;
-    }
-    @media (min-width: 768px) {
-      .grid-item.text {
-        justify-content: flex-start;
-        padding-top: 20px;
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
       }
-
-      .costumh1 {
-        font-size: 70px;
-        margin: 80px;
-        white-space: nowrap; /* Forhindrer tekst i at bryde linjer */
-        overflow: hidden; /* Skjuler overskydende tekst, hvis den er for lang */
-      }
-    }
-
-    @media (max-width: 768px) {
-      .grid-container {
-        grid-template-columns: 1fr;
-      }
-      .costumeh1 {
-        font-family: "Courier New";
-        font-size: 100px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
-    }
-  </style>
-
-  <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-        } else {
-          panel.style.display = "block";
-        }
-      });
-    }
-  </script>
-</body>
-<Footer />
+    });
+  }
+</script>

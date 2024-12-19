@@ -1,13 +1,17 @@
+---
+
+---
+
 <div class="hero">
   <div class="grid1-tekst">
     <!-- Shop Knap -->
-    <h1 class="overskrift1"> Slowfashion</h1>
-  <p class="underoverskrift1">“We give discarded clothes new life”</p>
+    <h1 class="overskrift1">Slowfashion</h1>
+    <p class="underoverskrift1">“We give discarded clothes new life”</p>
     <div class="button-container">
       <a href="/list" class="shop-button">SHOP NOW</a>
     </div>
   </div>
-  <img src="./gallery/solrig1122.png" alt="heroBillede" class="hero-image" />
+  <img src="./gallery/hero.webp" alt="heroBillede" class="hero-image" />
 </div>
 
 <style>
@@ -23,101 +27,69 @@
     height: auto;
   }
 
-  .shop-button:hover {
+  .grid1-tekst {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+
+  .overskrift1 {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  .underoverskrift1 {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .shop-button {
+    display: inline-block;
     background-color: #4d0000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      transform 0.2s,
+      background-color 0.2s;
+  }
+
+  .shop-button:hover {
+    background-color: #8b0000;
     transform: scale(1.05);
   }
 
   .shop-button:active {
     transform: scale(0.95);
-    background-color: #4d0000;
   }
 
+  /* Mobilvisning */
   @media screen and (max-width: 600px) {
+    .grid1-tekst {
+      top: 50%; /* Juster lodret placering på mobil */
+    }
+
     .overskrift1 {
-    padding: 1x;
-    font-size: 40px;
-    font-weight: 700;
-    letter-spacing: -5px;
-    margin-top: 160px;
-  }
-  .underoverskrift1 {
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    font-size: 10px;
-  }
+      font-size: 40px; /* Mindre overskrift */
+    }
 
-  .shop-button {
-    background-color: #4d0000;
-    color: #fff;
-    font-weight: bold;
-    font-size: 8px;
-    padding: 7px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition:
-      transform 0.2s,
-      background-color 0.2s;
-    text-decoration: none;
-  }
+    .underoverskrift1 {
+      font-size: 12px; /* Mindre citattekst */
+    }
 
- .button-container {
-    margin-top: 20px;
-
+    .shop-button {
+      font-size: 14px; /* Mindre knaptekst */
+      padding: 8px 15px; /* Mindre knapstørrelse */
+    }
   }
-  .grid1-tekst {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
-  }
-
-  @media screen and (min-width: 600px) {
-  .overskrift1 {
-    padding: 10x;
-    font-size: 100px;
-    font-weight: 700;
-    letter-spacing: -5px;
-    margin-top: 70px;
-  }
-  .underoverskrift {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  .grid1-tekst {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
-
-  .button-container {
-    margin-top: 50px;
-  }
-
-  .shop-button {
-    background-color: #4d0000;
-    color: #fff;
-    font-weight: bold;
-    font-size: 25px;
-    padding: 20px 40px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition:
-      transform 0.2s,
-      background-color 0.2s;
-    text-decoration: none;
-  }
-}
 </style>
