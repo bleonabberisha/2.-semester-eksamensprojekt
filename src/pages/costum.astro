@@ -1,19 +1,21 @@
 ---
 import "../styles/global.css";
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
   <div class="grid-container">
     <div class="grid-item text">
-      <h1 class="costumh1">Costum made</h1>
+      <h1 class="costumh1">Custom made</h1>
       <p>At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
     </div>
 
-    <div class="grid-item image">
-      <img src="/gallery/costume2.png" alt="Outfit af pigerne" />
+    <div class="grid-item_image">
+      <img src="/gallery/maerke.webp" alt="Outfit af pigerne" />
+    </div>
+
+    <div class="grid-item_image">
+      <img src="/gallery/doing.webp" alt="costumimg1" />
     </div>
     <div class="grid-item text">
       <h2 class="howitworks">How it works</h2>
@@ -24,36 +26,36 @@ import MainLayout from "../layouts/MainLayout.astro";
       </ol>
     </div>
 
-    <div class="grid-item image">
-      <img src="/gallery/costume1.png" alt="costumimg1" />
+    <div class="grid_faq">
+      <h2 class="questions">Ofte Stillede Spørgsmål</h2>
+
+      <button class="accordion">Hvordan fungerer processen for specialdesignede produkter?</button>
+      <div class="panel">
+        <p>Processen starter med, at du vælger design, farver og detaljer for dit produkt. Når du har lagt din ordre, begynder vi produktionen, som tager op til 2 uger. Vi holder dig opdateret hele vejen.</p>
+      </div>
+
+      <button class="accordion">Kan jeg få mit produkt tilpasset med personlige detaljer?</button>
+      <div class="panel">
+        <p>Ja, vi tilbyder muligheden for at tilføje personlige detaljer som initialer, symboler eller andre unikke tilpasninger, der gør dit produkt helt specielt.</p>
+      </div>
+
+      <button class="accordion">Hvor lang tid tager det at producere mit produkt?</button>
+      <div class="panel">
+        <p>Da alle vores produkter er håndlavede og specialfremstillede, tager produktionen typisk op til 2 uger. Vi sørger for at informere dig om status undervejs.</p>
+      </div>
+
+      <button class="accordion">Kan jeg returnere et speciallavet produkt?</button>
+      <div class="panel">
+        <p>Da produkterne er speciallavede efter dine ønsker, tilbyder vi desværre ikke returret. Hvis der er fejl i produktet, kan du dog kontakte os, så vi kan finde en løsning.</p>
+      </div>
+
+      <button class="accordion">Hvilke betalingsmetoder accepterer I?</button>
+      <div class="panel">
+        <p>Vi accepterer de fleste større betalingskort samt MobilePay og internationale betalingsmetoder. Betalingen er sikker og nem.</p>
+      </div>
     </div>
-
-    <div class="grid-item text">
-      <h2 class="questions">Frequently Asked Questions</h2>
-      <button class="accordion">What is a Payment Gateway?</button>
-      <div class="panel">
-        <p>With one of the lowest transaction charges in the industry, pay only when you get paid!</p>
-      </div>
-
-      <button class="accordion">Do I need to pay to Instapay even when there is no transaction going on in my business?</button>
-      <div class="panel">
-        <p>No, you do not need to pay Instapay where there is no transaction happening.</p>
-      </div>
-
-      <button class="accordion">What platforms does Instapay payment gateway support?</button>
-      <div class="panel">
-        <p>Instapay helps you accept online payments form costumers across dekstop, mobile web, Android and IOS globally.</p>
-      </div>
-
-      <button class="accordion">Does Instapay provide international payments support?</button>
-      <div class="panel">
-        <p>Yes, Instapay provides support for international transactions. We support all major international cards and 92 currencies including USD, EUR, GBP, SGD and AED.</p>
-      </div>
-
-      <button class="accordion">Is there any setup fee or annual maintainance fee that I need to pay regularly?</button>
-      <div class="panel">
-        <p>We do not charge for the setup and annual maintainance. You only pay for the plan that you are opting to.</p>
-      </div>
+    <div class="grid-item_image">
+      <img src="/gallery/patches.webp" alt="costumimg1" />
     </div>
   </div>
 </MainLayout>
@@ -77,11 +79,12 @@ import MainLayout from "../layouts/MainLayout.astro";
     flex-direction: column;
     justify-content: center;
   }
-
-  .grid-item image {
+  .grid-item_image img {
     width: 100%;
+    max-width: 100vw;
     height: auto;
     object-fit: cover;
+    padding: 20px;
   }
 
   h1 {
@@ -89,27 +92,27 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   h2,
-  p,
-  img {
+  p {
     padding: 20px;
   }
 
   .accordion {
-    background-color: #eee;
-    color: #444;
+    background-color: #f0edee;
+    color: black;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     text-align: left;
-    border: none;
     outline: none;
+    border: none;
     transition: 0.4s;
     font-weight: bold;
   }
 
   .active,
   .accordion:hover {
-    background-color: #ccc;
+    background-color: #780116;
+    color: white;
   }
 
   .accordion:after {
@@ -138,8 +141,7 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   ol li {
-    margin-bottom: 10px; /* Afstand mellem punkter */
-    line-height: 1.6; /* For bedre læsbarhed */
+    margin-bottom: 30px; /* Afstand mellem punkter */
   }
 
   ol li strong {

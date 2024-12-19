@@ -82,7 +82,9 @@ li {
   a,
   button,
   li {
-    font-size: 16px;
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 60ch;
   }
 
   .carousel-item {

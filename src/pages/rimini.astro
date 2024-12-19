@@ -25,40 +25,38 @@ try {
 ---
 
 <MainLayout>
-<h1 class="overskrift">RIMINI</h1>
-<main>
-  {
-    produkter.length > 0 ? (
-      produkter.map((produkt) => (
-        <article class={produkt.liked ? "liked" : ""}>
-          <a href={`/product/${produkt.id}`} style="text-decoration: none; color: inherit;">
-            <img src={produkt.picture} alt={produkt.name} />
-            <h3>{produkt.name}</h3>
-            <p class="price">{produkt.price.toFixed(2).replace(".", ",")} kr.</p>
-          </a>
-        </article>
-      ))
-    ) : (
-      <p>Ingen produkter fundet.</p>
-    )
-  }
-</main>
+  <h1 class="overskrift">RIMINI</h1>
+  <main>
+    {
+      produkter.length > 0 ? (
+        produkter.map((produkt) => (
+          <article class={produkt.liked ? "liked" : ""}>
+            <a href={`/product/${produkt.id}`} style="text-decoration: none; color: inherit;">
+              <img src={produkt.picture} alt={produkt.name} />
+              <h3>{produkt.name}</h3>
+              <p class="price">{produkt.price.toFixed(2).replace(".", ",")} kr.</p>
+            </a>
+          </article>
+        ))
+      ) : (
+        <p>Ingen produkter fundet.</p>
+      )
+    }
+  </main>
 </MainLayout>
 
 <style>
   .overskrift {
     text-align: left;
-    padding: 20px;
     margin-left: 90px;
     margin-top: 25px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto;
   }
   main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
   }
