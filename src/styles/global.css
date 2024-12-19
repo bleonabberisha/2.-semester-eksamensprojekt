@@ -30,7 +30,8 @@ p,
 a,
 button,
 li,
-.footer-copyright {
+.footer-copyright,
+.top-bar {
   font-family: "Courier Prime", monospace;
   text-decoration: none;
 }
@@ -44,7 +45,7 @@ li,
 }
 
 /* Mobil styling */
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   h1 {
     font-size: 28px; /* Mindre skriftstørrelse til mobil */
   }

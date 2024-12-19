@@ -2,6 +2,9 @@
 import BurgerMenu from "./BurgerMenu.astro";
 ---
 
+<div class="top-bar">
+  <span>30 Days right of return</span> | <span>1 year free repair and alterations</span>
+</div>
 <nav>
   <!-- BurgerMenu -->
   <BurgerMenu />
@@ -42,12 +45,26 @@ import BurgerMenu from "./BurgerMenu.astro";
 
 <style>
   /* Navigation styling */
+
+  /* Styling for the top bar */
+  .top-bar {
+    text-align: center; /* Centrerer teksten */
+    padding: 5px 0; /* Vertikal afstand omkring teksten */
+    font-size: 12px; /* Skriftstørrelse */
+    color: #333; /* Tekstfarve */
+    margin-bottom: 15px;
+  }
+
+  .top-bar span {
+    margin: 0 5px; /* Tilføj lidt afstand mellem spans */
+  }
   nav {
+    max-width: 100%; /* Sørger for, at hele navigationen ikke overskrider skærmbredden */
+    box-sizing: border-box; /* Inkluder padding i bredden */
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 0 20px;
-    border-bottom: 0.5px solid black;
   }
 
   .dropdown {
@@ -104,11 +121,12 @@ import BurgerMenu from "./BurgerMenu.astro";
   }
 
   /* Ikoner styling */
+
   .ikoner {
     display: flex;
     gap: 20px;
-    grid-column: 3; /* Placer ikoner i højre kolonne */
-    justify-self: end; /* Justér til højre */
+    justify-content: flex-end; /* Holder ikonerne til højre */
+    overflow: hidden; /* Sikrer, at de ikke går ud over containeren */
   }
 
   .heart,
@@ -126,23 +144,24 @@ import BurgerMenu from "./BurgerMenu.astro";
     justify-items: center;
     width: 100%;
     margin-top: 20px;
-    padding-bottom: 15px;
+    padding: 5px;
+    border-top: 0.5px solid black; /* Tilføj en streg */
     border-bottom: 0.5px solid black; /* Tilføj en streg */
   }
 
   .linje_menu a {
     text-decoration: none;
     color: black;
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 22px;
   }
 
   /* Søgefunktion styling */
   .search-wrapper {
     display: flex;
     align-items: center;
-    position: relative;
-    justify-content: flex-start; /* Placerer ikonet i venstre side */
+    justify-content: flex-start; /* Holder søgefunktionen til venstre */
+    overflow: hidden; /* Sikrer, at søgefeltet ikke går ud over containeren */
   }
 
   .search-icon {
@@ -153,16 +172,10 @@ import BurgerMenu from "./BurgerMenu.astro";
   }
 
   .search-container {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: 40px; /* Justér afstanden fra venstre */
-    top: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
+    max-width: 200px; /* Begræns bredden af søgefeltet */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tilføjer "..." hvis indholdet bliver for bredt */
+    white-space: nowrap; /* Forhindrer teksten i at bryde til næste linje */
   }
 
   .hidden {
@@ -180,6 +193,10 @@ import BurgerMenu from "./BurgerMenu.astro";
   }
 
   @media (max-width: 768px) {
+    .top-bar {
+      font-size: 9.5px;
+    }
+
     .linje_menu {
       display: none !important;
     }

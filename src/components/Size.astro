@@ -1,248 +1,132 @@
 ---
 
 ---
-<div class="dropdown">
-    <button id="dropdown-button" class="dropdown-button">
-      SELECT SIZE
-      <span class="arrow" id="arrow"></span>
-    </button>
-    <div class="dropdown-content" id="dropdown-content">
-      <a href="#" data-size="SIZE 1">SIZE 1</a>
-      <a href="#" data-size="SIZE 2">SIZE 2</a>
-      <a href="#" data-size="SIZE 3">SIZE 3</a>
-    </div>
-  </div>
-  
-  
-  <style>
-    /* Dropdown button styling */
-    .dropdown-button {
-      background-color: white;
-      color: black;
-      border: 2px solid #711922; 
-      width: 235px; /* Forøg bredden */
-      padding: 12px 20px; /* Juster padding for at holde afstanden fra kanten */
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      border-radius: 8px;
-      position: relative;
-      transition: background-color 0.2s, color 0.2s; /* Smooth transition for background and color */
-    }
-  
-    .dropdown-button:hover {
-      background-color: #780116;
-      color: #ffffff;
-    }
-  
-    /* Pil nedad - standard */
-    .arrow {
-      display: inline-block;
-      margin-left: 10px;
-      border: solid black;
-      border-width: 0 2px 2px 0;
-      padding: 5px;
-      transform: rotate(45deg);
-      transition: transform 0.3s ease, border-color 0.3s; /* Smooth transition for transform and border color */
-    }
 
-      /* Når dropdown knappen hoveres */
+<div class="dropdown">
+  <button id="dropdown-button" class="dropdown-button">
+    SELECT SIZE
+    <span class="arrow" id="arrow"></span>
+  </button>
+  <div class="dropdown-content" id="dropdown-content">
+    <a href="#" data-size="SIZE 1">SIZE 1</a>
+    <a href="#" data-size="SIZE 2">SIZE 2</a>
+    <a href="#" data-size="SIZE 3">SIZE 3</a>
+  </div>
+</div>
+
+<style>
+  /* Dropdown button styling */
+  .dropdown-button {
+    background-color: white;
+    color: black;
+    border: 2px solid #711922;
+    width: 235px; /* Forøg bredden */
+    padding: 12px 20px; /* Juster padding for at holde afstanden fra kanten */
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 8px;
+    position: relative;
+    transition:
+      background-color 0.2s,
+      color 0.2s; /* Smooth transition for background and color */
+  }
+
+  .dropdown-button:hover {
+    background-color: #780116;
+    color: #ffffff;
+  }
+
+  /* Pil nedad - standard */
+  .arrow {
+    display: inline-block;
+    margin-left: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    padding: 5px;
+    transform: rotate(45deg);
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s; /* Smooth transition for transform and border color */
+  }
+
+  /* Når dropdown knappen hoveres */
   .dropdown-button:hover .arrow {
     border-color: white; /* Pilens farve ændres til hvid ved hover */
   }
-  
-    /* Dropdown indhold - skjult som standard */
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #ffffff;
-      border: 2px solid #780116;
-      border-radius: 8px;
-      z-index: 1;
-      margin-top: 5px;
-      min-width: 235px; /* Match bredden af knappen */
-    }
-  
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-  
-    .dropdown-content a:hover {
-      background-color: #780116;
-      color: #ffffff;
-    }
-  
-    /* Når dropdown vises */
-    .show {
-      display: block;
-    }
-  
-    /* Pil opad når dropdown er åben */
-    .arrow-up {
-      transform: rotate(-135deg); /* Ændrer retning */
-    }
-  </style>
-  
-  <script>
-// Dropdown funktion
-function toggleDropdown() {
-  const dropdown = document.getElementById("dropdown-content");
-  const arrow = document.getElementById("arrow");
 
-  dropdown.classList.toggle("show");
-  arrow.classList.toggle("arrow-up");
-}
+  /* Dropdown indhold - skjult som standard */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 2px solid #780116;
+    border-radius: 8px;
+    z-index: 1;
+    margin-top: 5px;
+    min-width: 235px; /* Match bredden af knappen */
+  }
 
-// Event listener for knappen
-document.getElementById("dropdown-button").addEventListener("click", toggleDropdown);
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
 
-// Luk dropdown, hvis der klikkes udenfor
-window.addEventListener("click", function(event) {
-  if (!event.target.closest(".dropdown")) {
+  .dropdown-content a:hover {
+    background-color: #780116;
+    color: #ffffff;
+  }
+
+  /* Når dropdown vises */
+  .show {
+    display: block;
+  }
+
+  /* Pil opad når dropdown er åben */
+  .arrow-up {
+    transform: rotate(-135deg); /* Ændrer retning */
+  }
+</style>
+
+<script>
+  // Dropdown funktion
+  function toggleDropdown() {
     const dropdown = document.getElementById("dropdown-content");
     const arrow = document.getElementById("arrow");
 
-    dropdown.classList.remove("show");
-    arrow.classList.remove("arrow-up");
+    dropdown.classList.toggle("show");
+    arrow.classList.toggle("arrow-up");
   }
-});
 
-// Skift knaptekst til valgt størrelse
-const dropdownLinks = document.querySelectorAll("#dropdown-content a");
-const dropdownButton = document.getElementById("dropdown-button");
+  // Event listener for knappen
+  document.getElementById("dropdown-button").addEventListener("click", toggleDropdown);
 
-dropdownLinks.forEach(link => {
-  link.addEventListener("click", function(event) {
-    event.preventDefault(); // Forhindrer standard link-handling
-    const selectedSize = this.getAttribute("data-size");
-    dropdownButton.firstChild.textContent = selectedSize; // Skift tekst på knappen
-    document.getElementById("dropdown-content").classList.remove("show"); // Luk dropdown
-    document.getElementById("arrow").classList.remove("arrow-up"); // Ret pilen
+  // Luk dropdown, hvis der klikkes udenfor
+  window.addEventListener("click", function (event) {
+    if (!event.target.closest(".dropdown")) {
+      const dropdown = document.getElementById("dropdown-content");
+      const arrow = document.getElementById("arrow");
+
+      dropdown.classList.remove("show");
+      arrow.classList.remove("arrow-up");
+    }
   });
-});
-  </script>
-  
 
+  // Skift knaptekst til valgt størrelse
+  const dropdownLinks = document.querySelectorAll("#dropdown-content a");
+  const dropdownButton = document.getElementById("dropdown-button");
 
-
-
-<!-- ---
-
----
-<div class="dropdown">
-    <button id="dropdown-button" class="dropdown-button">
-        SELECT SIZE
-        <span class="arrow" id="arrow"></span>
-      </button>
-    <div class="dropdown-content" id="dropdown-content">
-      <a href="#">SIZE 1</a>
-      <a href="#">SIZE 2</a>
-      <a href="#">SIZE 3</a>
-    </div>
-  </div>
-  
-  <style>
-    /* Dropdown button styling */
-    .dropdown-button {
-      background-color: white;
-      color: black;
-      border: 2px solid #711922; 
-      padding: 10px 16px;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 200px;
-      cursor: pointer;
-      border-radius: 8px;
-      position: relative;
-      transition: background-color 0.2s, color 0.2s; /* Smooth transition for background and color */
-    }
-  
-    .dropdown-button:hover {
-      background-color: #780116;
-      color: #ffffff;
-    }
-  
-    /* Pil nedad - standard */
-    .arrow {
-      display: inline-block;
-      margin-left: 10px;
-      border: solid black;
-      border-width: 0 2px 2px 0;
-      padding: 5px;
-      transform: rotate(45deg);
-      transition: transform 0.3s ease, border-color 0.3s; /* Smooth transition for transform and border color */
-    }
-
-      /* Når dropdown knappen hoveres */
-  .dropdown-button:hover .arrow {
-    border-color: white; /* Pilens farve ændres til hvid ved hover */
-  }
-  
-    /* Dropdown indhold - skjult som standard */
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #ffffff;
-      border: 2px solid #780116;
-      border-radius: 8px;
-      min-width: 200px;
-      z-index: 1;
-      margin-top: 5px;
-    }
-  
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-  
-    .dropdown-content a:hover {
-      background-color: #780116;
-      color: #ffffff;
-    }
-  
-    /* Når dropdown vises */
-    .show {
-      display: block;
-    }
-  
-    /* Pil opad når dropdown er åben */
-    .arrow-up {
-      transform: rotate(-135deg); /* Ændrer retning */
-    }
-  </style>
-  
-  <script>
-// Dropdown funktion
-function toggleDropdown() {
-  const dropdown = document.getElementById("dropdown-content");
-  const arrow = document.getElementById("arrow");
-
-  dropdown.classList.toggle("show");
-  arrow.classList.toggle("arrow-up");
-}
-
-// Event listener for knappen
-document.getElementById("dropdown-button").addEventListener("click", toggleDropdown);
-
-// Luk dropdown, hvis der klikkes udenfor
-window.addEventListener("click", function(event) {
-  if (!event.target.closest(".dropdown")) {
-    const dropdown = document.getElementById("dropdown-content");
-    const arrow = document.getElementById("arrow");
-
-    dropdown.classList.remove("show");
-    arrow.classList.remove("arrow-up");
-  }
-});
-  </script>
-   -->
-
+  dropdownLinks.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault(); // Forhindrer standard link-handling
+      const selectedSize = this.getAttribute("data-size");
+      dropdownButton.firstChild.textContent = selectedSize; // Skift tekst på knappen
+      document.getElementById("dropdown-content").classList.remove("show"); // Luk dropdown
+      document.getElementById("arrow").classList.remove("arrow-up"); // Ret pilen
+    });
+  });
+</script>
