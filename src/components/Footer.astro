@@ -15,8 +15,8 @@
     </a>
   </div>
   <div class="footer-links">
-    <a href="#">About Solrig</a>
-    <a href="#">Terms and conditiions</a>
+    <a href="/about">About Solrig</a>
+    <a href="#">Terms and conditions</a>
     <a href="#">Contact</a>
   </div>
   <div class="footer-copyright">© 2024 solrig. Powered by solrig.</div>
@@ -55,6 +55,15 @@
   .footer-links a {
     text-decoration: none;
     color: inherit;
-    font-size: 10px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 769px) {
+    .footer-links a,
+    .footer-copyright {
+      text-decoration: none;
+      color: inherit;
+      font-size: 12px;
+    }
   }
 </style>

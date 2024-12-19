@@ -27,7 +27,7 @@ const { products } = Astro.props;
 </div>
 
 <style>
- @media screen and (min-width: 600px) {
+ @media (min-width: 769px) {
   .carousel-container {
     position: relative;
     overflow: hidden;
@@ -80,7 +80,7 @@ const { products } = Astro.props;
     }
   } }
 
-  @media screen and (max-width: 600px) { 
+  @media (max-width: 769px) { 
 
 .carousel-container {
     position: relative;
@@ -100,7 +100,6 @@ const { products } = Astro.props;
     animation: scroll 20s linear infinite;
     width: max-content; 
   }
-
 
   .carousel-item {
     flex-shrink: 0;

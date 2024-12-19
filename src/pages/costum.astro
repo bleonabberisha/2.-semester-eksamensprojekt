@@ -1,19 +1,22 @@
 ---
 import "../styles/global.css";
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+const title = "Custom made";
 ---
 
 <MainLayout>
   <div class="grid-container">
     <div class="grid-item text">
-      <h1 class="costumh1">Costum made</h1>
+      <h1 class="costumh1">CUSTOM MADE</h1>
       <p>At Solrig Design, everything is about you and your unique style. We offer custom-made designs that are created exactly according to your wishes. Whether you dream of a lively color palette, a certain style, or a detail that makes the product really special, we can make it come true.</p>
     </div>
 
-    <div class="grid-item image">
-      <img src="/gallery/costume2.png" alt="Outfit af pigerne" />
+    <div class="grid-item_image">
+      <img src="/gallery/maerke.webp" alt="Outfit af pigerne" />
+    </div>
+
+    <div class="grid-item_image">
+      <img src="/gallery/doing.webp" alt="costumimg1" />
     </div>
     <div class="grid-item text">
       <h2 class="howitworks">How it works</h2>
@@ -24,41 +27,53 @@ import MainLayout from "../layouts/MainLayout.astro";
       </ol>
     </div>
 
-    <div class="grid-item image">
-      <img src="/gallery/costume1.png" alt="costumimg1" />
+    <div class="grid_faq">
+      <h2 class="questions">Frequently Asked Questions</h2>
+
+      <button class="accordion">How does the process for custom-designed products work?</button>
+      <div class="panel">
+        <p>The process starts with you selecting the design, colors, and details for your product. Once you place your order, we begin production, which takes up to 2 weeks. We keep you updated throughout the process.</p>
+      </div>
+
+      <button class="accordion">Can I customize my product with personal details?</button>
+      <div class="panel">
+        <p>Yes, we offer the option to add personal details such as initials, symbols, or other unique customizations to make your product truly special.</p>
+      </div>
+
+      <button class="accordion">How long does it take to produce my product?</button>
+      <div class="panel">
+        <p>Since all our products are handmade and custom-made, production typically takes up to 2 weeks. We ensure to keep you informed about the progress during this time.</p>
+      </div>
+
+      <button class="accordion">Can I return a custom-made product?</button>
+      <div class="panel">
+        <p>As the products are custom-made to your specifications, we unfortunately do not offer returns. However, if there is an issue with the product, you can contact us, and we will find a solution.</p>
+      </div>
+
+      <button class="accordion">What payment methods do you accept?</button>
+      <div class="panel">
+        <p>We accept most major credit cards as well as MobilePay and international payment methods. Payments are secure and easy.</p>
+      </div>
     </div>
 
-    <div class="grid-item text">
-      <h2 class="questions">Frequently Asked Questions</h2>
-      <button class="accordion">What is a Payment Gateway?</button>
-      <div class="panel">
-        <p>With one of the lowest transaction charges in the industry, pay only when you get paid!</p>
-      </div>
-
-      <button class="accordion">Do I need to pay to Instapay even when there is no transaction going on in my business?</button>
-      <div class="panel">
-        <p>No, you do not need to pay Instapay where there is no transaction happening.</p>
-      </div>
-
-      <button class="accordion">What platforms does Instapay payment gateway support?</button>
-      <div class="panel">
-        <p>Instapay helps you accept online payments form costumers across dekstop, mobile web, Android and IOS globally.</p>
-      </div>
-
-      <button class="accordion">Does Instapay provide international payments support?</button>
-      <div class="panel">
-        <p>Yes, Instapay provides support for international transactions. We support all major international cards and 92 currencies including USD, EUR, GBP, SGD and AED.</p>
-      </div>
-
-      <button class="accordion">Is there any setup fee or annual maintainance fee that I need to pay regularly?</button>
-      <div class="panel">
-        <p>We do not charge for the setup and annual maintainance. You only pay for the plan that you are opting to.</p>
-      </div>
+    <div class="grid-item_image">
+      <img src="/gallery/patches.webp" alt="costumimg1" />
     </div>
   </div>
 </MainLayout>
 
 <style>
+  .grid-item.text h1 {
+    text-align: left;
+    margin: 0;
+    padding: 30px;
+  }
+
+  .grid-item.text p {
+    margin: 0;
+    padding: 20px;
+  }
+
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -77,11 +92,12 @@ import MainLayout from "../layouts/MainLayout.astro";
     flex-direction: column;
     justify-content: center;
   }
-
-  .grid-item image {
+  .grid-item_image img {
     width: 100%;
+    max-width: 100vw;
     height: auto;
     object-fit: cover;
+    padding: 20px;
   }
 
   h1 {
@@ -89,27 +105,27 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   h2,
-  p,
-  img {
+  p {
     padding: 20px;
   }
 
   .accordion {
-    background-color: #eee;
-    color: #444;
+    background-color: #f0edee;
+    color: black;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     text-align: left;
-    border: none;
     outline: none;
+    border: none;
     transition: 0.4s;
     font-weight: bold;
   }
 
   .active,
   .accordion:hover {
-    background-color: #ccc;
+    background-color: #780116;
+    color: white;
   }
 
   .accordion:after {
@@ -138,29 +154,27 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   ol li {
-    margin-bottom: 10px; /* Afstand mellem punkter */
-    line-height: 1.6; /* For bedre læsbarhed */
+    margin-bottom: 30px; /* Afstand mellem punkter */
   }
 
   ol li strong {
     font-weight: bold;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 769px) {
     .grid-item.text {
       justify-content: flex-start;
       padding-top: 20px;
     }
 
     .costumh1 {
-      font-size: 70px;
       margin: 70px;
       white-space: nowrap; /* Forhindrer tekst i at bryde linjer */
       overflow: hidden; /* Skjuler overskydende tekst, hvis den er for lang */
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 769px) {
     .grid-container {
       grid-template-columns: 1fr;
     }
