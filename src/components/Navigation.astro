@@ -126,13 +126,20 @@ import BurgerMenu from "./BurgerMenu.astro";
     display: flex;
     gap: 20px;
     justify-content: flex-end; /* Holder ikonerne til højre */
-    overflow: hidden; /* Sikrer, at de ikke går ud over containeren */
+    overflow: hidden; /* Behold denne, hvis det er nødvendigt */
   }
 
   .heart,
   .cart {
-    max-width: 24px;
+    width: 42px; /* Fast bredde til forældre */
+    height: auto; /* Sørg for, at højden justeres efter indhold */
+  }
+
+  .heart img,
+  .cart img {
     height: auto;
+    object-fit: contain; /* Bevarer proportioner */
+    padding: 0; /* Fjern padding, hvis det ikke er nødvendigt */
   }
 
   /* Linje menu styling */
@@ -209,7 +216,17 @@ import BurgerMenu from "./BurgerMenu.astro";
       max-width: 125px;
       height: auto;
     }
-  }
+
+    /* Ikoner styling */
+
+    .ikoner {
+      gap: 12px;
+    }
+
+    .heart,
+    .cart {
+      width: 30px; /* Fast bredde til forældre */
+    }
 </style>
 
 <script>
